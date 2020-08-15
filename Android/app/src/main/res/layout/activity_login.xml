@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:orientation="vertical"
+style="@style/loginParent"
+tools:context="com.heine.dennis.fingerprintauthentication.LoginActivity">
+<ScrollView
+    style="@style/parent">
+
+    <RelativeLayout
+        style="@style/parent">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp">
+
+
+            <TextView
+                style="@style/headerTextPrimary"
+                android:layout_gravity="center"
+                android:text="Fingerpint Auth"
+                android:layout_marginTop="40dp"/>
+
+            <LinearLayout
+                style="@style/linearParent"
+                android:layout_gravity="center"
+                android:padding="@dimen/loginViewsMargin">
+
+                <TextView
+                    style="@style/headerTextPrimary"
+                    android:text="Login"
+                    android:layout_marginTop="@dimen/loginViewsMargin"/>
+
+                <EditText
+                    android:id="@+id/editTextEmail"
+                    style="@style/modifiedEditText"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:hint="@string/login_email_hint"/>
+
+
+
+                <EditText
+                    android:id="@+id/editTextPassword"
+                    style="@style/modifiedEditText"
+                    android:hint="@string/login_password_hint"
+                    android:maxLines="1"
+                    android:inputType="textPassword"/>
+
+
+                <TextView
+                    style="@style/viewParent"
+                    android:text="Forgot Password?"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/newsMoreTextSize"
+                    android:layout_gravity="end"
+                    android:onClick="viewForgotPAssword"
+                    android:layout_marginTop="10dp"/>
+
+                <Button
+                    android:id="@+id/cirLoginButton"
+                    style="@style/loginButton"
+                    android:text="Login"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/loginViewsMargin"
+                    android:onClick="clickLogin"/>
+
+                <TextView
+                    style="@style/parent"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryTextColor"
+                    android:text="@string/login_signup_hint"
+                    android:onClick="viewRegisterClicked"
+                    android:layout_marginTop="@dimen/loginViewsMargin"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel" />
+    </RelativeLayout>
+
+</ScrollView>
+
+</RelativeLayout>
+
+

@@ -1,0 +1,351 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PeanutButter.TrayIcon</name>
+    </assembly>
+    <members>
+        <member name="T:PeanutButter.TrayIcon.ITrayIcon">
+            <summary>
+            Interface of the tray icon utility. Substitute for testing (:
+            </summary>
+        </member>
+        <member name="P:PeanutButter.TrayIcon.ITrayIcon.NotifyIcon">
+            <summary>
+            The win32 forms notify icon exposed for any functionality not already encapsulated in this utility
+            </summary>
+        </member>
+        <member name="P:PeanutButter.TrayIcon.ITrayIcon.DefaultBalloonTipTimeout">
+            <summary>
+            Default timeout, in milliseconds, for balloon messages
+            </summary>
+        </member>
+        <member name="P:PeanutButter.TrayIcon.ITrayIcon.Icon">
+            <summary>
+            The
+            </summary>
+        </member>
+        <member name="P:PeanutButter.TrayIcon.ITrayIcon.DefaultTipText">
+            <summary>
+            Default tooltip text
+            </summary>
+        </member>
+        <member name="P:PeanutButter.TrayIcon.ITrayIcon.DefaultTipTitle">
+            <summary>
+            Default tooltip title
+            </summary>
+        </member>
+        <member name="P:PeanutButter.TrayIcon.ITrayIcon.DefaultBalloonTipClickedAction">
+            <summary>
+            Default action to run when clicking the balloon tip
+            </summary>
+        </member>
+        <member name="P:PeanutButter.TrayIcon.ITrayIcon.DefaultBalloonTipClosedAction">
+            <summary>
+            Default action to run when closing the ballon tip
+            </summary>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.ITrayIcon.ShowBalloonTipFor(System.Int32,System.String,System.String,System.Windows.Forms.ToolTipIcon,System.Action,System.Action)">
+            <summary>
+            Shows a balloon tip
+            </summary>
+            <param name="timeoutInMilliseconds">How long to show for</param>
+            <param name="title">Title to show on the balloon</param>
+            <param name="text">Text to show in the balloon</param>
+            <param name="icon">Icon to display on the balloon</param>
+            <param name="clickAction">Action to run when the user clicks the balloon</param>
+            <param name="closeAction">Action to run when user closes the balloon</param>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.ITrayIcon.AddSubMenu(System.String,System.Windows.Forms.MenuItem)">
+            <summary>
+            Adds a submenu to an existing menu or to the root menu if no parent provided
+            </summary>
+            <param name="text">Text to display for the submenu</param>
+            <param name="parent">Parent menu (optional: defaults to the root menu)</param>
+            <returns></returns>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.ITrayIcon.AddMenuItem(System.String,System.Action,System.Windows.Forms.MenuItem)">
+            <summary>
+            Adds an item to a menu
+            </summary>
+            <param name="withText">Text to display on the menu item</param>
+            <param name="withCallback">Action to run when the user clicks the menu item</param>
+            <param name="parent">Parent menu (optional, defaults to the root menu)</param>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.ITrayIcon.AddMenuSeparator(System.Windows.Forms.MenuItem)">
+            <summary>
+            Adds a menu separator
+            </summary>
+            <param name="subMenu">Menu to add to (optional, defaults to the root menu)</param>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.ITrayIcon.RemoveMenuItem(System.String)">
+            <summary>
+            Removes a menu item by its label
+            </summary>
+            <param name="withText">Label of the item to remove</param>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.ITrayIcon.AddMouseClickHandler(PeanutButter.TrayIcon.MouseClicks,System.Windows.Forms.MouseButtons,System.Action)">
+            <summary>
+            Add a mouse click handler for the icon
+            </summary>
+            <param name="clicks">Single or double</param>
+            <param name="button">Which button to capture for</param>
+            <param name="handler">Callback to invoke</param>
+            <returns>A handler object which can be used to de-register the handler</returns>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.ITrayIcon.RemoveMouseClickHandler(PeanutButter.TrayIcon.MouseClickHandler)">
+            <summary>
+            Remove the provided handler
+            </summary>
+            <param name="handler">Handler obtained through a prior AddMouseClickHandler call</param>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.ITrayIcon.Init(System.Drawing.Icon)">
+            <summary>
+            Initializes the Tray Icon with an Icon
+            </summary>
+            <param name="icon">Icon to display</param>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.ITrayIcon.Init(System.IO.Stream)">
+            <summary>
+            Initializes the Tray Icon from a stream providing icon data
+            </summary>
+            <param name="iconStream">Stream providing icon data (ico)</param>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.ITrayIcon.Init(System.String)">
+            <summary>
+            Initializes the Tray Icon with a path to an icon (ico or png)
+            </summary>
+            <param name="pathToIcon">Path to the icon to use</param>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.ITrayIcon.Init(System.Drawing.Bitmap)">
+            <summary>
+            Initialize with a Bitmap structure for the icon
+            </summary>
+            <param name="bitmap">Bitmap to use for the icon</param>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.ITrayIcon.Show">
+            <summary>
+            Shows the Tray Icon if not visible
+            </summary>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.ITrayIcon.Hide">
+            <summary>
+            Hides the Tray Icon if visible
+            </summary>
+        </member>
+        <member name="T:PeanutButter.TrayIcon.MouseClicks">
+            <summary>
+            Enumeration for number of mouse clicks
+            </summary>
+        </member>
+        <member name="F:PeanutButter.TrayIcon.MouseClicks.Single">
+            <summary>
+            Single-Click
+            </summary>
+        </member>
+        <member name="F:PeanutButter.TrayIcon.MouseClicks.Double">
+            <summary>
+            Double-Click
+            </summary>
+        </member>
+        <member name="T:PeanutButter.TrayIcon.MouseClickHandler">
+            <summary>
+            Object wrapping a mouse click handler
+            </summary>
+        </member>
+        <member name="P:PeanutButter.TrayIcon.MouseClickHandler.Button">
+            <summary>
+            Which button this handler is for
+            </summary>
+        </member>
+        <member name="P:PeanutButter.TrayIcon.MouseClickHandler.Action">
+            <summary>
+            The action to run when the handler is matched
+            </summary>
+        </member>
+        <member name="P:PeanutButter.TrayIcon.MouseClickHandler.Clicks">
+            <summary>
+            Run on single or double-click
+            </summary>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.MouseClickHandler.#ctor(PeanutButter.TrayIcon.MouseClicks,System.Windows.Forms.MouseButtons,System.Action)">
+            <summary>
+            Constructs a MouseClickHandler registration container
+            </summary>
+            <param name="clicks">Single- or Double- click handling</param>
+            <param name="button">Mouse button to handle for</param>
+            <param name="action">Action to run when the handler is matched</param>
+        </member>
+        <member name="T:PeanutButter.TrayIcon.TrayIcon">
+            <inheritdoc />
+        </member>
+        <member name="P:PeanutButter.TrayIcon.TrayIcon.NotifyIcon">
+            <inheritdoc />
+        </member>
+        <member name="P:PeanutButter.TrayIcon.TrayIcon.DefaultBalloonTipTimeout">
+            <inheritdoc />
+        </member>
+        <member name="P:PeanutButter.TrayIcon.TrayIcon.MouseClickHandlers">
+            <summary>
+            Provides an array of the currently-registered mouse click handlers
+            </summary>
+        </member>
+        <member name="P:PeanutButter.TrayIcon.TrayIcon.Icon">
+            <inheritdoc />
+        </member>
+        <member name="P:PeanutButter.TrayIcon.TrayIcon.DefaultTipText">
+            <inheritdoc />
+        </member>
+        <member name="P:PeanutButter.TrayIcon.TrayIcon.DefaultTipTitle">
+            <inheritdoc />
+        </member>
+        <member name="P:PeanutButter.TrayIcon.TrayIcon.DefaultBalloonTipClickedAction">
+            <inheritdoc />
+        </member>
+        <member name="P:PeanutButter.TrayIcon.TrayIcon.DefaultBalloonTipClosedAction">
+            <inheritdoc />
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIcon.#ctor">
+            <summary>
+            Parameterless constructor. Don't forget to Init later!
+            </summary>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIcon.#ctor(System.Drawing.Icon)">
+            <summary>
+            Construct and Init with an Icon
+            </summary>
+            <param name="icon"></param>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIcon.#ctor(System.Drawing.Bitmap)">
+            <summary>
+            Construct and Init with a Bitmap
+            </summary>
+            <param name="icon"></param>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIcon.#ctor(System.IO.Stream)">
+            <summary>
+            Construct and Init with a stream providing icon data
+            </summary>
+            <param name="iconImageStream"></param>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIcon.Init(System.IO.Stream)">
+            <inheritdoc />
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIcon.#ctor(System.String)">
+            <summary>
+            Construct and Init with a path to an icon file
+            </summary>
+            <param name="pathToIcon"></param>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIcon.Init(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIcon.Init(System.Drawing.Bitmap)">
+            <inheritdoc />
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIcon.ShowBalloonTipFor(System.Int32,System.String,System.String,System.Windows.Forms.ToolTipIcon,System.Action,System.Action)">
+            <inheritdoc />
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIcon.AddSubMenu(System.String,System.Windows.Forms.MenuItem)">
+            <inheritdoc />
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIcon.AddMenuItem(System.String,System.Action,System.Windows.Forms.MenuItem)">
+            <inheritdoc />
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIcon.AddMenuSeparator(System.Windows.Forms.MenuItem)">
+            <inheritdoc />
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIcon.RemoveMenuItem(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIcon.Show">
+            <inheritdoc />
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIcon.Hide">
+            <inheritdoc />
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIcon.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIcon.AddMouseClickHandler(PeanutButter.TrayIcon.MouseClicks,System.Windows.Forms.MouseButtons,System.Action)">
+            <inheritdoc />
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIcon.RemoveMouseClickHandler(PeanutButter.TrayIcon.MouseClickHandler)">
+            <inheritdoc />
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIcon.Init(System.Drawing.Icon)">
+            <inheritdoc />
+        </member>
+        <member name="T:PeanutButter.TrayIcon.TrayIconAlreadyInitializedException">
+            <summary>
+            Exception thrown when code attempts to initialize a tray icon more than once
+            </summary>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIconAlreadyInitializedException.#ctor">
+            <summary>
+            Creates an instance of the exception
+            </summary>
+        </member>
+        <member name="T:PeanutButter.TrayIcon.ITrayIconAnimator">
+            <summary>
+            Provides animation for a TrayIcon
+            </summary>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.ITrayIconAnimator.Busy">
+            <summary>
+            Animate as if busy
+            </summary>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.ITrayIconAnimator.Busy(System.String)">
+            <summary>
+            Animate as if busy, with provided tooltip text
+            </summary>
+            <param name="withText"></param>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.ITrayIconAnimator.Rest">
+            <summary>
+            Stop animating, as if at rest
+            </summary>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.ITrayIconAnimator.Rest(System.String)">
+            <summary>
+            Stop animating, as if at rest, with specific tooltip text
+            </summary>
+            <param name="withText"></param>
+        </member>
+        <member name="T:PeanutButter.TrayIcon.TrayIconAnimator">
+            <summary>
+            Animator for the Tray Icon
+            </summary>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIconAnimator.#ctor(PeanutButter.TrayIcon.ITrayIcon,System.Drawing.Icon,System.Drawing.Icon[])">
+            <summary>
+            Constructs an animator
+            </summary>
+            <param name="trayIcon">Tray icon to work with</param>
+            <param name="restStateIcon">Icon to use when not animating</param>
+            <param name="animationFrames">Frames to use during animation</param>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIconAnimator.Busy">
+            <summary>
+            Animate as if busy
+            </summary>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIconAnimator.Busy(System.String)">
+            <summary>
+            Animate as if busy, with provided tooltip text
+            </summary>
+            <param name="withText"></param>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIconAnimator.Rest">
+            <summary>
+            Stop animating, as if at rest
+            </summary>
+        </member>
+        <member name="M:PeanutButter.TrayIcon.TrayIconAnimator.Rest(System.String)">
+            <summary>
+            Stop animating, as if at rest, with specific tooltip text
+            </summary>
+            <param name="withText"></param>
+        </member>
+    </members>
+</doc>

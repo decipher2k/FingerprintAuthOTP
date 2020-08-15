@@ -1,0 +1,16 @@
+E:\aota\aota\_Server\AOTA Server\AOTA Server\bin\Release\netcoreapp2.1\AOTA Server.deps.json
+E:\aota\aota\_Server\AOTA Server\AOTA Server\bin\Release\netcoreapp2.1\AOTA Server.runtimeconfig.json
+E:\aota\aota\_Server\AOTA Server\AOTA Server\bin\Release\netcoreapp2.1\AOTA Server.runtimeconfig.dev.json
+E:\aota\aota\_Server\AOTA Server\AOTA Server\bin\Release\netcoreapp2.1\AOTA Server.dll
+E:\aota\aota\_Server\AOTA Server\AOTA Server\bin\Release\netcoreapp2.1\AOTA Server.pdb
+E:\aota\aota\_Server\AOTA Server\AOTA Server\bin\Release\netcoreapp2.1\AotaData.dll
+E:\aota\aota\_Server\AOTA Server\AOTA Server\bin\Release\netcoreapp2.1\AotaData.pdb
+E:\aota\aota\_Server\AOTA Server\AOTA Server\obj\Release\netcoreapp2.1\AOTA Server.csproj.CoreCompileInputs.cache
+E:\aota\aota\_Server\AOTA Server\AOTA Server\obj\Release\netcoreapp2.1\AOTA Server.RazorAssemblyInfo.cache
+E:\aota\aota\_Server\AOTA Server\AOTA Server\obj\Release\netcoreapp2.1\AOTA Server.RazorAssemblyInfo.cs
+E:\aota\aota\_Server\AOTA Server\AOTA Server\obj\Release\netcoreapp2.1\AOTA Server.AssemblyInfoInputs.cache
+E:\aota\aota\_Server\AOTA Server\AOTA Server\obj\Release\netcoreapp2.1\AOTA Server.AssemblyInfo.cs
+E:\aota\aota\_Server\AOTA Server\AOTA Server\obj\Release\netcoreapp2.1\AOTA Server.RazorTargetAssemblyInfo.cache
+E:\aota\aota\_Server\AOTA Server\AOTA Server\obj\Release\netcoreapp2.1\AOTA Server.csproj.CopyComplete
+E:\aota\aota\_Server\AOTA Server\AOTA Server\obj\Release\netcoreapp2.1\AOTA Server.dll
+E:\aota\aota\_Server\AOTA Server\AOTA Server\obj\Release\netcoreapp2.1\AOTA Server.pdb
