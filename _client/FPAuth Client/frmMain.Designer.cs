@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,7 +40,8 @@
             this.grpSettings = new System.Windows.Forms.GroupBox();
             this.cbAutostart = new System.Windows.Forms.CheckBox();
             this.cbPressEnter = new System.Windows.Forms.CheckBox();
-            this.bnSetMasterpass = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.groupBox1.SuspendLayout();
             this.grpSettings.SuspendLayout();
             this.SuspendLayout();
@@ -107,13 +109,13 @@
             // 
             // grpSettings
             // 
+            this.grpSettings.Controls.Add(this.button1);
             this.grpSettings.Controls.Add(this.cbAutostart);
             this.grpSettings.Controls.Add(this.cbPressEnter);
-            this.grpSettings.Controls.Add(this.bnSetMasterpass);
             this.grpSettings.Enabled = false;
             this.grpSettings.Location = new System.Drawing.Point(12, 171);
             this.grpSettings.Name = "grpSettings";
-            this.grpSettings.Size = new System.Drawing.Size(162, 98);
+            this.grpSettings.Size = new System.Drawing.Size(162, 102);
             this.grpSettings.TabIndex = 6;
             this.grpSettings.TabStop = false;
             this.grpSettings.Text = "Settings";
@@ -140,21 +142,26 @@
             this.cbPressEnter.UseVisualStyleBackColor = true;
             this.cbPressEnter.CheckedChanged += new System.EventHandler(this.cbPressEnter_CheckedChanged);
             // 
-            // bnSetMasterpass
+            // button1
             // 
-            this.bnSetMasterpass.Location = new System.Drawing.Point(19, 63);
-            this.bnSetMasterpass.Name = "bnSetMasterpass";
-            this.bnSetMasterpass.Size = new System.Drawing.Size(125, 23);
-            this.bnSetMasterpass.TabIndex = 7;
-            this.bnSetMasterpass.Text = "Set";
-            this.bnSetMasterpass.UseVisualStyleBackColor = true;
-            this.bnSetMasterpass.Click += new System.EventHandler(this.bnSetMasterpass_Click);
+            this.button1.Location = new System.Drawing.Point(19, 63);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Add 2FA";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(190, 320);
+            this.ClientSize = new System.Drawing.Size(190, 286);
             this.Controls.Add(this.grpSettings);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -183,9 +190,10 @@
         private System.Windows.Forms.Button bnLogin;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox grpSettings;
-        private System.Windows.Forms.Button bnSetMasterpass;
         private System.Windows.Forms.CheckBox cbAutostart;
         private System.Windows.Forms.CheckBox cbPressEnter;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 

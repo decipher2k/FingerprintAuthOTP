@@ -244,5 +244,11 @@ namespace FPAuth_Client
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmAdd2FA f = new frmAdd2FA(txtUsername.Text, txtPassword.Text);
+            f.ShowDialog();
+        }
     }
 }
