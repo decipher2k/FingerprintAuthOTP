@@ -195,8 +195,8 @@ namespace AOTA_Server.Controllers
             {
                 if (p.Password == GetMD5Hash(password))
                 {
-                    Seeds seeds = _buildingContext.Seeds.Where<Seeds>((a => a.idPlayer == p.id)).Where(a => a.name == name).Single();
-                    if (seeds == null)
+                    if( _buildingContext.Seeds.Where<Seeds>((a => a.idPlayer == p.id)).Where(a => a.name == name).ToList().Count==0)
+                    
                     {
                         Seeds mseed = new Seeds();
                         mseed.name = name;

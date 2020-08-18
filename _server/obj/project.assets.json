@@ -12658,11 +12658,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\IEUser\\Desktop\\Server\\AOTA Server.csproj",
+      "projectUniqueName": "C:\\Users\\IEUser\\Desktop\\_server\\AOTA Server.csproj",
       "projectName": "AOTA Server",
-      "projectPath": "C:\\Users\\IEUser\\Desktop\\Server\\AOTA Server.csproj",
+      "projectPath": "C:\\Users\\IEUser\\Desktop\\_server\\AOTA Server.csproj",
       "packagesPath": "C:\\Users\\IEUser\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\IEUser\\Desktop\\Server\\obj\\",
+      "outputPath": "C:\\Users\\IEUser\\Desktop\\_server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\IEUser\\AppData\\Roaming\\NuGet\\NuGet.Config",

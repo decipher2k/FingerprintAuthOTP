@@ -104,3 +104,21 @@ C:\Users\IEUser\Desktop\Server\obj\Debug\netcoreapp2.1\AOTA Server.RazorTargetAs
 C:\Users\IEUser\Desktop\Server\obj\Debug\netcoreapp2.1\AOTA Server.dll
 C:\Users\IEUser\Desktop\Server\obj\Debug\netcoreapp2.1\AOTA Server.pdb
 C:\Users\IEUser\Desktop\Server\obj\Debug\netcoreapp2.1\AOTA Server.genruntimeconfig.cache
+C:\Users\IEUser\Desktop\_server\bin\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Users\IEUser\Desktop\_server\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\IEUser\Desktop\_server\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+C:\Users\IEUser\Desktop\_server\bin\Debug\netcoreapp2.1\AOTA Server.deps.json
+C:\Users\IEUser\Desktop\_server\bin\Debug\netcoreapp2.1\AOTA Server.runtimeconfig.json
+C:\Users\IEUser\Desktop\_server\bin\Debug\netcoreapp2.1\AOTA Server.runtimeconfig.dev.json
+C:\Users\IEUser\Desktop\_server\bin\Debug\netcoreapp2.1\AOTA Server.dll
+C:\Users\IEUser\Desktop\_server\bin\Debug\netcoreapp2.1\AOTA Server.pdb
+C:\Users\IEUser\Desktop\_server\obj\Debug\netcoreapp2.1\AOTA Server.csprojAssemblyReference.cache
+C:\Users\IEUser\Desktop\_server\obj\Debug\netcoreapp2.1\AOTA Server.AssemblyInfoInputs.cache
+C:\Users\IEUser\Desktop\_server\obj\Debug\netcoreapp2.1\AOTA Server.AssemblyInfo.cs
+C:\Users\IEUser\Desktop\_server\obj\Debug\netcoreapp2.1\AOTA Server.csproj.CoreCompileInputs.cache
+C:\Users\IEUser\Desktop\_server\obj\Debug\netcoreapp2.1\AOTA Server.RazorAssemblyInfo.cache
+C:\Users\IEUser\Desktop\_server\obj\Debug\netcoreapp2.1\AOTA Server.RazorAssemblyInfo.cs
+C:\Users\IEUser\Desktop\_server\obj\Debug\netcoreapp2.1\AOTA Server.RazorTargetAssemblyInfo.cache
+C:\Users\IEUser\Desktop\_server\obj\Debug\netcoreapp2.1\AOTA Server.dll
+C:\Users\IEUser\Desktop\_server\obj\Debug\netcoreapp2.1\AOTA Server.pdb
+C:\Users\IEUser\Desktop\_server\obj\Debug\netcoreapp2.1\AOTA Server.genruntimeconfig.cache
