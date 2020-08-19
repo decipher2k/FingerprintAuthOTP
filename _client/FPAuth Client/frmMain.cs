@@ -250,5 +250,11 @@ namespace FPAuth_Client
             frmAdd2FA f = new frmAdd2FA(txtUsername.Text, txtPassword.Text);
             f.ShowDialog();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmRegister f = new frmRegister();
+            f.ShowDialog();
+        }
     }
 }

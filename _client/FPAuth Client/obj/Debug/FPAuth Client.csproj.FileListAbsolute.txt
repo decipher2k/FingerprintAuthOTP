@@ -100,3 +100,4 @@ C:\Users\IEUser\Desktop\_client\FPAuth Client\obj\Debug\FPAuth Client.csproj.Cor
 C:\Users\IEUser\Desktop\_client\FPAuth Client\obj\Debug\FPAuth Client.csproj.CopyComplete
 C:\Users\IEUser\Desktop\_client\FPAuth Client\obj\Debug\FPAuth Client5.exe
 C:\Users\IEUser\Desktop\_client\FPAuth Client\obj\Debug\FPAuth Client5.pdb
+C:\Users\IEUser\Desktop\_client\FPAuth Client\obj\Debug\FPAuth_Client.frmRegister.resources

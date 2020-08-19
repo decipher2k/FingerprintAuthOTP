@@ -38,10 +38,11 @@
             this.bnLogin = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.grpSettings = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.cbAutostart = new System.Windows.Forms.CheckBox();
             this.cbPressEnter = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.grpSettings.SuspendLayout();
             this.SuspendLayout();
@@ -85,7 +86,7 @@
             // 
             // bnLogin
             // 
-            this.bnLogin.Location = new System.Drawing.Point(19, 99);
+            this.bnLogin.Location = new System.Drawing.Point(20, 124);
             this.bnLogin.Name = "bnLogin";
             this.bnLogin.Size = new System.Drawing.Size(125, 23);
             this.bnLogin.TabIndex = 4;
@@ -95,6 +96,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.linkLabel1);
             this.groupBox1.Controls.Add(this.txtUsername);
             this.groupBox1.Controls.Add(this.bnLogin);
             this.groupBox1.Controls.Add(this.label1);
@@ -102,7 +104,7 @@
             this.groupBox1.Controls.Add(this.txtPassword);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(162, 137);
+            this.groupBox1.Size = new System.Drawing.Size(162, 153);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login Data";
@@ -119,6 +121,16 @@
             this.grpSettings.TabIndex = 6;
             this.grpSettings.TabStop = false;
             this.grpSettings.Text = "Settings";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(19, 63);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Add 2FA";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // cbAutostart
             // 
@@ -142,20 +154,21 @@
             this.cbPressEnter.UseVisualStyleBackColor = true;
             this.cbPressEnter.CheckedChanged += new System.EventHandler(this.cbPressEnter_CheckedChanged);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(19, 63);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Add 2FA";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(98, 96);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(46, 13);
+            this.linkLabel1.TabIndex = 5;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Register";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // frmMain
             // 
@@ -194,6 +207,7 @@
         private System.Windows.Forms.CheckBox cbPressEnter;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 
