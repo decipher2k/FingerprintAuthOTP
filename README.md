@@ -11,3 +11,7 @@
  ToDo:<br>
 -fix mockups like "AUTH"<br>
 -split the servercode into classes
+
+Error fixes:
+-run c:\windows\syswow64\regasmcpy.bat c:\windows\syswow64\CredNet.dll
+-run \redist\install.reg manually
