@@ -16,5 +16,6 @@ namespace AOTA_Server
         public long idPlayer {get;set;}
         public string name { get; set; }
         public string seed { get; set; }        
+       
     }
 }

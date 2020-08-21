@@ -1,14 +1,17 @@
 package com.heine.dennis.fingerprintauthentication;
 
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
-import android.Manifest;
 import android.os.CancellationSignal;
 import android.support.v4.app.ActivityCompat;
 import android.widget.Toast;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 
 public class FingerprintHandler extends FingerprintManager.AuthenticationCallback {
@@ -57,7 +60,11 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
     @Override
     public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult result) {
         super.onAuthenticationSucceeded(result);
-        Utilities.getURL("https://fpauth.h2x.us/api/Session/Login?username="+Globals.username+"&password="+Globals.password+"&masterpass="+Globals.seed,mainActivity);
+        try {
+            Utilities.getURL("https://fpauth.h2x.us/api/Session/Login?username="+Globals.username+"&password="+Globals.password+"&masterpass="+ URLEncoder.encode(Globals.seed, "utf-8"),mainActivity);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         Intent i = new Intent(mainActivity, AccountsActivity.class);
         mainActivity.startActivity(i);
        // mainActivity.startAuth();

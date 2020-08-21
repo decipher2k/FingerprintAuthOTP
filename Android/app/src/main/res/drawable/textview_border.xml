@@ -1,8 +1,30 @@
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle" >
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <stroke
-        android:width="2dp"
-        android:color="#000000" />
+    <!-- First we have to create the line color (Black: #000000 and
+       Set position to 0 from all sides, this will allow us
+       even to to determine border size in any side (top,
+       right, bottom, left) -->
 
-</shape>
+    <item android:top="0dp"
+        android:right="0dp"
+        android:left="0dp"
+        android:bottom="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#000000"></solid>
+        </shape>
+    </item>
+
+    <!-- Here we fill the content with our color, and I will
+         push 1dp from the top so this size (top = 1dp) will
+         keep the previous color and it will look like the border
+         -->
+
+    <item android:top="0dp"
+        android:right="2dp"
+        android:left="2dp"
+        android:bottom="2dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#f4f4f4"></solid>
+        </shape>
+    </item>
+</layer-list>

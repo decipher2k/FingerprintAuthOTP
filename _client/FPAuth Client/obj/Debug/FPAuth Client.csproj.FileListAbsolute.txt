@@ -101,3 +101,30 @@ C:\Users\IEUser\Desktop\_client\FPAuth Client\obj\Debug\FPAuth Client.csproj.Cop
 C:\Users\IEUser\Desktop\_client\FPAuth Client\obj\Debug\FPAuth Client5.exe
 C:\Users\IEUser\Desktop\_client\FPAuth Client\obj\Debug\FPAuth Client5.pdb
 C:\Users\IEUser\Desktop\_client\FPAuth Client\obj\Debug\FPAuth_Client.frmRegister.resources
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\bin\Debug\FPAuth Client5.exe.config
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\bin\Debug\FPAuth Client5.exe
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\bin\Debug\FPAuth Client5.pdb
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\bin\Debug\CredentialManagement.dll
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\bin\Debug\Microsoft.Win32.TaskScheduler.dll
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\bin\Debug\PeanutButter.TrayIcon.dll
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\bin\Debug\WindowsInput.dll
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\bin\Debug\Microsoft.Win32.TaskScheduler.xml
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\bin\Debug\PeanutButter.TrayIcon.xml
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\bin\Debug\WindowsInput.xml
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\bin\Debug\de\Microsoft.Win32.TaskScheduler.resources.dll
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\bin\Debug\es\Microsoft.Win32.TaskScheduler.resources.dll
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\bin\Debug\fr\Microsoft.Win32.TaskScheduler.resources.dll
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\bin\Debug\it\Microsoft.Win32.TaskScheduler.resources.dll
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\bin\Debug\pl\Microsoft.Win32.TaskScheduler.resources.dll
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\bin\Debug\ru\Microsoft.Win32.TaskScheduler.resources.dll
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\bin\Debug\zh-CN\Microsoft.Win32.TaskScheduler.resources.dll
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\obj\Debug\FPAuth Client.csprojAssemblyReference.cache
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\obj\Debug\FPAuth_Client.frmAdd2FA.resources
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\obj\Debug\FPAuth_Client.frmMain.resources
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\obj\Debug\FPAuth_Client.frmRegister.resources
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\obj\Debug\FPAuth_Client.Properties.Resources.resources
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\obj\Debug\FPAuth Client.csproj.GenerateResource.cache
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\obj\Debug\FPAuth Client.csproj.CoreCompileInputs.cache
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\obj\Debug\FPAuth Client.csproj.CopyComplete
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\obj\Debug\FPAuth Client5.exe
+F:\backup\fpauth\FingerprintAuth\_client\FPAuth Client\obj\Debug\FPAuth Client5.pdb

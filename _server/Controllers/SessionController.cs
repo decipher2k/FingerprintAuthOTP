@@ -45,21 +45,29 @@ namespace AOTA_Server.Controllers
             if (u.Password == GetMD5Hash(password))
             {
                 if(passes.ContainsKey(s.sessionKey))
-                { 
-                    String seed = passes[s.sessionKey];
+                {
+                    // String seed = passes[s.sessionKey];
 
                     // Seeds seeds = _buildingContext.Seeds.Where<Seeds>((a => a.idPlayer == u.id)).Where(a => a.seed == seed).Single();
-                   // if (seeds != null)
-                   // {
-                        //  if (passes.ContainsKey(u.Session))
-                        // {
-                        // String _session = passes[u.Session];
-                        //  passes.Remove(u.Session);
+                    // if (seeds != null)
+                    // {
+                    //  if (passes.ContainsKey(u.Session))
+                    // {
+                    // String _session = passes[u.Session];
+                    //  passes.Remove(u.Session);
+                    String seed = "";
+                    passes.TryGetValue(s.sessionKey, out seed);
+                    if (seed.Substring(0, 1).Equals("#"))
+                    {
+                        passes.Remove(s.sessionKey);
+                        return seed.Substring(1);
+                    }
+
                         var sha1 = new SHA1CryptoServiceProvider();
 
                         string result = null;
 
-
+                        
                         var base32Bytes = Base32Encoding.ToBytes(seed);
                         //var arrayResult = sha1.ComputeHash(arrayData);
                         var totp = new Totp(base32Bytes);
@@ -175,6 +183,11 @@ namespace AOTA_Server.Controllers
                 {
                     List<Seeds> s = _buildingContext.Seeds.Where(a => a.idPlayer == p.id).ToList();
                     SeedsCapsule sc = new SeedsCapsule();
+
+                    for(int i=0;i<s.Count; i++)
+                    {
+                        s[i].seed = StringCipher.Decrypt(s[i].seed, password);
+                    }
                     sc.seeds = s;
                     return sc;
                 }
@@ -182,9 +195,9 @@ namespace AOTA_Server.Controllers
             return null;
         }
 
-        [HttpGet("{username, password,seed,name}")]
+        [HttpGet("{username, password,seed,name,isstp}")]
         [Route("AddSeed")]
-        public String AddSeed([FromQuery(Name = "username")] String username, [FromQuery(Name = "password")] String password, [FromQuery(Name = "seed")] String seed, [FromQuery(Name = "name")] String name)
+        public String AddSeed([FromQuery(Name = "username")] String username, [FromQuery(Name = "password")] String password, [FromQuery(Name = "seed")] String seed, [FromQuery(Name = "name")] String name, [FromQuery(Name = "isstp")] String isstp)
         {
             PlayerData p = _buildingContext.PlayerData.Where<PlayerData>(a => a.Name == username).Single();
             if (p == null)
@@ -200,8 +213,14 @@ namespace AOTA_Server.Controllers
                     {
                         Seeds mseed = new Seeds();
                         mseed.name = name;
-                        mseed.seed = seed;
+                        if (isstp == "TRUE")
+                        {
+                            seed = "#" + seed;
+                        }
+                        mseed.seed = StringCipher.Encrypt(seed,password);
                         mseed.idPlayer = p.id;
+                        
+                        
                         _buildingContext.Add(mseed);
                         _buildingContext.SaveChanges();
                         return "AUTH";

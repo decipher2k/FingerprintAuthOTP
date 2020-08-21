@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.UnsupportedEncodingException;
+
 public class LoginActivity extends AppCompatActivity {
 
     @Override
@@ -23,8 +25,12 @@ public class LoginActivity extends AppCompatActivity {
                 String pass = cursor.getString(cursor.getColumnIndex(FeedReaderContract.FeedEntryUser.COLUMN_SEED_TITLE));
                 String name = cursor.getString(cursor.getColumnIndex(FeedReaderContract.FeedEntryUser.COLUMN_CAPTION_TITLE));
                 Globals.username=name;
-                Globals.password=pass;
-                String ret=Utilities.getURL("https://fpauth.h2x.us/api/Session/DoLogin?username="+name+"&password="+pass,null);
+                try {
+                    Globals.password=new String((new PasswordStorageHelper(this)).getData("FPAuth"), "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                String ret=Utilities.getURL("https://fpauth.h2x.us/api/Session/DoLogin?username="+name+"&password="+Globals.password,null);
                 if(ret.contains("AUTH")) {
                     Intent i = new Intent(LoginActivity.this, AccountsActivity.class);
                     startActivity(i);
@@ -91,8 +97,13 @@ public class LoginActivity extends AppCompatActivity {
             Cursor  cursor = db.rawQuery("select * from "+FeedReaderContract.FeedEntryUser.TABLE_NAME,null);
 
                 ContentValues values = new ContentValues();
-                values.put(FeedReaderContract.FeedEntryUser.COLUMN_SEED_TITLE, Globals.password);
-                values.put(FeedReaderContract.FeedEntryUser.COLUMN_CAPTION_TITLE, Globals.username);
+              //  values.put(FeedReaderContract.FeedEntryUser.COLUMN_SEED_TITLE, Globals.password);
+            try {
+                (new PasswordStorageHelper(this)).setData("FPAuth",password.getBytes("UTF-8"));
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            values.put(FeedReaderContract.FeedEntryUser.COLUMN_CAPTION_TITLE, Globals.username);
 
 // Insert the new row, returning the primary key value of the new row
                 long newRowId = db.insert(FeedReaderContract.FeedEntryUser.TABLE_NAME, null, values);

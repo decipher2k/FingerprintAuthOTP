@@ -122,3 +122,20 @@ C:\Users\IEUser\Desktop\_server\obj\Debug\netcoreapp2.1\AOTA Server.RazorTargetA
 C:\Users\IEUser\Desktop\_server\obj\Debug\netcoreapp2.1\AOTA Server.dll
 C:\Users\IEUser\Desktop\_server\obj\Debug\netcoreapp2.1\AOTA Server.pdb
 C:\Users\IEUser\Desktop\_server\obj\Debug\netcoreapp2.1\AOTA Server.genruntimeconfig.cache
+F:\backup\fpauth\FingerprintAuth\_server\bin\Debug\netcoreapp2.1\appsettings.Development.json
+F:\backup\fpauth\FingerprintAuth\_server\bin\Debug\netcoreapp2.1\appsettings.json
+F:\backup\fpauth\FingerprintAuth\_server\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+F:\backup\fpauth\FingerprintAuth\_server\bin\Debug\netcoreapp2.1\AOTA Server.deps.json
+F:\backup\fpauth\FingerprintAuth\_server\bin\Debug\netcoreapp2.1\AOTA Server.runtimeconfig.json
+F:\backup\fpauth\FingerprintAuth\_server\bin\Debug\netcoreapp2.1\AOTA Server.runtimeconfig.dev.json
+F:\backup\fpauth\FingerprintAuth\_server\bin\Debug\netcoreapp2.1\AOTA Server.dll
+F:\backup\fpauth\FingerprintAuth\_server\bin\Debug\netcoreapp2.1\AOTA Server.pdb
+F:\backup\fpauth\FingerprintAuth\_server\obj\Debug\netcoreapp2.1\AOTA Server.AssemblyInfoInputs.cache
+F:\backup\fpauth\FingerprintAuth\_server\obj\Debug\netcoreapp2.1\AOTA Server.AssemblyInfo.cs
+F:\backup\fpauth\FingerprintAuth\_server\obj\Debug\netcoreapp2.1\AOTA Server.csproj.CoreCompileInputs.cache
+F:\backup\fpauth\FingerprintAuth\_server\obj\Debug\netcoreapp2.1\AOTA Server.RazorAssemblyInfo.cache
+F:\backup\fpauth\FingerprintAuth\_server\obj\Debug\netcoreapp2.1\AOTA Server.RazorAssemblyInfo.cs
+F:\backup\fpauth\FingerprintAuth\_server\obj\Debug\netcoreapp2.1\AOTA Server.RazorTargetAssemblyInfo.cache
+F:\backup\fpauth\FingerprintAuth\_server\obj\Debug\netcoreapp2.1\AOTA Server.dll
+F:\backup\fpauth\FingerprintAuth\_server\obj\Debug\netcoreapp2.1\AOTA Server.pdb
+F:\backup\fpauth\FingerprintAuth\_server\obj\Debug\netcoreapp2.1\AOTA Server.genruntimeconfig.cache

@@ -12653,19 +12653,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\IEUser\\.nuget\\packages\\": {}
+    "C:\\Users\\pcd\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\IEUser\\Desktop\\_server\\AOTA Server.csproj",
+      "projectUniqueName": "F:\\backup\\fpauth\\FingerprintAuth\\_server\\AOTA Server.csproj",
       "projectName": "AOTA Server",
-      "projectPath": "C:\\Users\\IEUser\\Desktop\\_server\\AOTA Server.csproj",
-      "packagesPath": "C:\\Users\\IEUser\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\IEUser\\Desktop\\_server\\obj\\",
+      "projectPath": "F:\\backup\\fpauth\\FingerprintAuth\\_server\\AOTA Server.csproj",
+      "packagesPath": "C:\\Users\\pcd\\.nuget\\packages\\",
+      "outputPath": "F:\\backup\\fpauth\\FingerprintAuth\\_server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\IEUser\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pcd\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

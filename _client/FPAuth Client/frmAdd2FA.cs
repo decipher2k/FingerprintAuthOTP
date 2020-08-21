@@ -27,7 +27,7 @@ namespace FPAuth_Client
             if(txtName.Text!="" && txtSeed.Text!="")
             {
                 WebClient wc = new WebClient();
-                String ret = wc.DownloadString("https://fpauth.h2x.us/api/Session/AddSeed?username=" +  username+ "&password=" + password+"&seed="+txtSeed.Text+"&name="+txtName.Text);
+                String ret = wc.DownloadString("https://fpauth.h2x.us/api/Session/AddSeed?username=" +  username+ "&password=" + password+"&seed="+txtSeed.Text+"&name="+txtName.Text+"&isstp="+(checkBox1.Checked?"TRUE":"FALSE"));
                 if (ret.Contains("AUTH"))
                     this.Close();
                 else

@@ -17,6 +17,7 @@ using Microsoft.Win32.TaskScheduler;
 using Action = System.Action;
 using System.Reflection;
 using System.Diagnostics;
+using System.IO;
 
 namespace FPAuth_Client
 {
@@ -34,7 +35,7 @@ namespace FPAuth_Client
             backgroundWorker.RunWorkerAsync();
             try
             {
-                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Heine\FPLogin");
+                RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Heine\FPLogin");
                 if (key != null && key.GetValue("Username")!=null)
                 {
                     Username = key.GetValue("Username").ToString();
@@ -130,15 +131,16 @@ namespace FPAuth_Client
                         {
                             Username = txtUsername.Text;
                             Password = txtPassword.Text;
+                            File.WriteAllText(Environment.GetEnvironmentVariable("public") + "\\fpauth.conf", Username);
                             try
                             {
-                                RegistryKey mkey = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Heine");
+                                RegistryKey mkey = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Heine");
                                 mkey.CreateSubKey("FPLogin");
                             }
                             catch (Exception ex) { }
                             try
                             {
-                                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Heine\FPLogin", true);
+                                RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Heine\FPLogin", true);
                                 key.SetValue("Username", Username);
                             }
                             catch (Exception ex) { }
@@ -148,8 +150,9 @@ namespace FPAuth_Client
                               
                             }
                             catch (Exception ex) { }
-                            Credentials.SavePassword(Password);
-                           
+                            Credentials.SavePassword(Password,Username);
+                           // Credentials.SavePassword(Username,"FPAuthUser");
+
                             txtUsername.Enabled = false;
                             txtPassword.Enabled = false;
                             isLoggedIn = true;
@@ -231,7 +234,7 @@ namespace FPAuth_Client
 
         private void cbPressEnter_CheckedChanged(object sender, EventArgs e)
         {
-            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Heine\FPLogin", true);
+            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Heine\FPLogin", true);
             if (key != null)
             {
                 if (cbPressEnter.Checked)

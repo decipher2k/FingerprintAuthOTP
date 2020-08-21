@@ -10,14 +10,15 @@ namespace FPAuth_Client
     public static class Credentials
     {
         private static String PasswordName = "FPAuth";
-        public static void SavePassword(string password)
+        public static void SavePassword(string password, string username, String name = "FPAuth")
         {
             try
             {
                 using (var cred = new Credential())
                 {
                     cred.Password = password;
-                    cred.Target = PasswordName;
+                    cred.Username = username;
+                    cred.Target = name;
                     cred.Type = CredentialType.Generic;
                     cred.PersistanceType = PersistanceType.LocalComputer;
                     cred.Save();
@@ -28,13 +29,13 @@ namespace FPAuth_Client
             }
         }
         //retrieve password from the windows vault store using Credential Manager   
-        public static string GetPassword()
+        public static string GetPassword(String name = "FPAuth")
         {
             try
             {
                 using (var cred = new Credential())
                 {
-                    cred.Target = PasswordName;
+                    cred.Target = name;
                     cred.Load();
                     return cred.Password;
                 }
@@ -44,6 +45,24 @@ namespace FPAuth_Client
             }
             return "";
         }
+
+        public static string GetUsername(String name = "FPAuth")
+        {
+            try
+            {
+                using (var cred = new Credential())
+                {
+                    cred.Target = name;
+                    cred.Load();
+                    return cred.Username;
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            return "";
+        }
+
 
     }
 }
