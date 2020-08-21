@@ -10,8 +10,8 @@
  You will need the app from github under "Releases" (install.bat will install all files from \redist, which is the credential provider for windows logons as well as the client app and a reistry key) and the Android app from: https://play.google.com/store/apps/details?id=com.heine.dennis.fingerprintauthentication <br><br>
  ToDo:<br>
 -fix mockups like "AUTH"<br>
--split the servercode into classes
-
-Error fixes:
--run c:\windows\syswow64\regasmcpy.bat c:\windows\syswow64\CredNet.dll
+-split the servercode into classes<br>
+<br>
+Error fixes:<br>
+-run c:\windows\syswow64\regasmcpy.bat c:\windows\syswow64\CredNet.dll<br>
 -run \redist\install.reg manually
