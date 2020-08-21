@@ -6,6 +6,8 @@ Currently supportet login types:<br>
 -Windows Logon using password<br>
 -Typing in the password (Weblogin etc.)<br>
  <br>
+ Please Note:
+You will need the app from github under "Releases" as well as the Android app from: https://play.google.com/store/apps/details?id=com.heine.dennis.fingerprintauthentication
  ToDo:<br>
 -fix mockups like "AUTH"<br>
 -split the servercode into classes
