@@ -4,7 +4,4 @@
  <br>
  ToDo:<br>
 -fix mockups like "AUTH"<br>
--add possibility of static password<br>
--encode seeds serverside with gpg (means the user wont be able to reset his masterpassword without loss of his seeds)<br>
--encrypt password clientside in db with key in android keystore<br>
 -split the servercode into classes
