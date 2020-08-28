@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using CredNet.Controls;
 using CredNet.Interop;
 using Microsoft.Win32;
@@ -28,44 +29,67 @@ namespace CredNet.Sample
 
             String username = "";
             String password = "";
-           // username = //"dehe@xmail.net";//Credentials.GetUsername();//"dehe@xmail.net";//key.GetValue("Username").ToString();
-           password = Credentials.GetPassword();
-            username=File.ReadAllText(Environment.GetEnvironmentVariable("public") + "\\fpauth.conf");
-            /*  try
-              {
-                  RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Heine\FPLogin");
-                  if (key != null && key.GetValue("Username") != null)
-                  {
-                         username = key.GetValue("Username").ToString();
-                      //    password = "Deskjet1";//Credentials.GetPassword();
-                  }
-
-              }
-              catch (Exception ex) { }*/
-
-            while (true)
+            // username = //"dehe@xmail.net";//Credentials.GetUsername();//"dehe@xmail.net";//key.GetValue("Username").ToString();
+            if (!File.Exists(Environment.GetEnvironmentVariable("public") + "\\fpauth.conf"))
             {
-                WebClient wclient = new WebClient();
-                try
-                {
-                    String pass = wclient.DownloadString("https://fpauth.h2x.us/api/Session/GetMasterPass?username=" + username + "&password=" + password);
-                    if (pass.Length > 0)
-                    {
+                MessageBox.Show("Please login using the Windows App to initialize FPAuth.");
+            }
+            else
+            {
+                username = File.ReadAllText(Environment.GetEnvironmentVariable("public") + "\\fpauth.conf");
 
-                        //passwordBox.Value = pass;
-                        Password = pass;
-                        passwordBox.Value = pass;
-                        System.Threading.Thread.Sleep(500);
-                        //InputSimulator si = new InputSimulator();
-                        InputSimulator.SimulateKeyPress(VirtualKeyCode.RETURN);
-                        // si.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
-                        break;
+                if (!File.Exists(Environment.GetEnvironmentVariable("public") + "\\fpauth_init.conf"))
+                {
+                    WebClient wclient1 = new WebClient();
+                    String pass1 = wclient1.DownloadString("https://fpauth.h2x.us/api/Session/Init?username=" + username);
+                    if (pass1.Length == 0)
+                    {
+                        MessageBox.Show("Security breach!\nPlease contact your administrator.");
+                    }
+                    else
+                    {
+                        Credentials.SavePassword(pass1, username);
+                        File.WriteAllText(Environment.GetEnvironmentVariable("public") + "\\fpauth_init.conf", "INIT");
                     }
                 }
-                catch (Exception ex) { }
-                System.Threading.Thread.Sleep(1000);
-            }
 
+                password = Credentials.GetPassword();
+
+                /*  try
+                  {
+                      RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Heine\FPLogin");
+                      if (key != null && key.GetValue("Username") != null)
+                      {
+                             username = key.GetValue("Username").ToString();
+                          //    password = "Deskjet1";//Credentials.GetPassword();
+                      }
+
+                  }
+                  catch (Exception ex) { }*/
+
+                while (true)
+                {
+                    WebClient wclient = new WebClient();
+                    try
+                    {
+                        String pass = wclient.DownloadString("https://fpauth.h2x.us/api/Session/GetMasterPass?username=" + username + "&password=" + password);
+                        if (pass.Length > 0)
+                        {
+
+                            //passwordBox.Value = pass;
+                            Password = pass;
+                            passwordBox.Value = pass;
+                            System.Threading.Thread.Sleep(500);
+                            //InputSimulator si = new InputSimulator();
+                            InputSimulator.SimulateKeyPress(VirtualKeyCode.RETURN);
+                            // si.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
+                            break;
+                        }
+                    }
+                    catch (Exception ex) { }
+                    System.Threading.Thread.Sleep(1000);
+                }
+            }
         }
         PasswordBox passwordBox;
         protected override void Initialize()

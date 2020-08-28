@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace AOTA_Server
+namespace AotaSrvNew
 {
     public class Session
     {

@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using Microsoft.AspNetCore.Mvc;
 using OtpNet;
 
-namespace AOTA_Server.Controllers
+namespace AotaSrvNew.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -33,6 +33,8 @@ namespace AOTA_Server.Controllers
             String ret = System.BitConverter.ToString(result).ToLower().Replace("-", "");
             return ret;
         }
+
+
         [HttpGet("{username, password}")]
         [Route("GetMasterPass")]
         public String GetMasterPass(String username, String password)
@@ -195,6 +197,52 @@ namespace AOTA_Server.Controllers
             return null;
         }
 
+
+
+
+        [HttpGet("{username}")]
+        [Route("Init")]
+        public String Init([FromQuery(Name = "username")] String username)
+        {
+            PlayerData p = _buildingContext.PlayerData.Where<PlayerData>(a => a.Name == username).Single();
+            if (p == null)
+            {
+                return null;
+            }
+            else
+            {
+                if (!inits.ContainsKey(username))
+                {
+                    return null;
+                }
+                else
+                {
+                    String pass = inits[username];
+                    inits.Remove(username);
+                    return pass;
+                }
+            }
+        }
+
+        [HttpGet("{username, password}")]
+        [Route("InitInit")]
+        public String InitInit([FromQuery(Name = "username")] String username, [FromQuery(Name = "password")] String password)
+        {
+            PlayerData p = _buildingContext.PlayerData.Where<PlayerData>(a => a.Name == username).Single();
+            if (p == null)
+            {
+                return null;
+            }
+            else
+            {
+                if (!inits.ContainsKey(username))
+                    inits.Add(username, password);
+                else
+                    inits[username] = password;
+            }
+            return null;
+        }
+        public static Dictionary<String, String> inits = new Dictionary<string, string>();
         [HttpGet("{username, password,seed,name,isstp}")]
         [Route("AddSeed")]
         public String AddSeed([FromQuery(Name = "username")] String username, [FromQuery(Name = "password")] String password, [FromQuery(Name = "seed")] String seed, [FromQuery(Name = "name")] String name, [FromQuery(Name = "isstp")] String isstp)

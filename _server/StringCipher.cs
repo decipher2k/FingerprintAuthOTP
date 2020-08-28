@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using System.IO;
 using System.Linq;
 
-namespace AOTA_Server
+namespace AotaSrvNew
 {
     public static class StringCipher
     {

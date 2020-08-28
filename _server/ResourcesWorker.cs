@@ -1,4 +1,4 @@
-﻿using AOTA_Server.Models;
+﻿using AotaSrvNew.Models;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace AOTA_Server
+namespace AotaSrvNew
 {
     public class ResourcesWorker : IHostedService
     {

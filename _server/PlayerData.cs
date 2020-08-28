@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 
 
-namespace AOTA_Server
+namespace AotaSrvNew
 {
     public class PlayerData
     {

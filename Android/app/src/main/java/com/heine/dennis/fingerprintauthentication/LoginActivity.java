@@ -137,7 +137,7 @@ public class LoginActivity extends AppCompatActivity {
                 Cursor  cursor = db.rawQuery("select * from "+FeedReaderContract.FeedEntryAccounts.TABLE_NAME,null);
                 if (!cursor.moveToFirst()) {
                     ContentValues values = new ContentValues();
-                    values.put(FeedReaderContract.FeedEntryUser.COLUMN_SEED_TITLE, Globals.password);
+
                     values.put(FeedReaderContract.FeedEntryUser.COLUMN_SEED_TITLE, Globals.username);
 
 // Insert the new row, returning the primary key value of the new row
