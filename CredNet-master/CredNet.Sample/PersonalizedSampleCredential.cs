@@ -53,7 +53,20 @@ namespace CredNet.Sample
                     }
                 }
 
-                password = Credentials.GetPassword();
+                try
+                {
+                    password = Credentials.GetPassword();
+                    if(password.Length==0||password==null)
+                    {
+                        throw new Exception();
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Possible security problem!\nContact your administrator.");
+                }
+
+
 
                 /*  try
                   {
