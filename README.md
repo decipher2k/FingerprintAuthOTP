@@ -13,5 +13,5 @@
 -split the servercode into classes<br>
 <br>
 Error fixes:<br>
--run the following command from and admin command prompt: c:\windows\syswow64\regasmcpy.bat c:\windows\syswow64\CredNet.dll<br>
+-run the following command from and admin command prompt:<br> c:\windows\syswow64\regasmcpy.bat c:\windows\syswow64\CredNet.dll<br>
 -run \redist\install.reg manually
