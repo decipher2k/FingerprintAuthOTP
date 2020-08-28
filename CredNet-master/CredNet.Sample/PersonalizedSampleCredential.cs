@@ -36,37 +36,51 @@ namespace CredNet.Sample
             }
             else
             {
-                username = File.ReadAllText(Environment.GetEnvironmentVariable("public") + "\\fpauth.conf");
+                /*    username = File.ReadAllText(Environment.GetEnvironmentVariable("public") + "\\fpauth.conf");
 
-                if (!File.Exists(Environment.GetEnvironmentVariable("public") + "\\fpauth_init.conf"))
-                {
-                    WebClient wclient1 = new WebClient();
-                    String pass1 = wclient1.DownloadString("https://fpauth.h2x.us/api/Session/Init?username=" + username);
-                    if (pass1.Length == 0)
+                    if (!File.Exists(Environment.GetEnvironmentVariable("public") + "\\fpauth_init.conf"))
                     {
-                        MessageBox.Show("Security breach!\nPlease contact your administrator.");
+                        WebClient wclient1 = new WebClient();
+                        String pass1 = wclient1.DownloadString("https://fpauth.h2x.us/api/Session/Init?username=" + username);
+                        if (pass1.Length == 0)
+                        {
+                            MessageBox.Show("Security breach!\nPlease contact your administrator.");
+                        }
+                        else
+                        {
+                            Credentials.SavePassword(pass1, username);
+                            File.WriteAllText(Environment.GetEnvironmentVariable("public") + "\\fpauth_init.conf", "INIT");
+                        }
                     }
-                    else
-                    {
-                        Credentials.SavePassword(pass1, username);
-                        File.WriteAllText(Environment.GetEnvironmentVariable("public") + "\\fpauth_init.conf", "INIT");
-                    }
-                }
 
+                    try
+                    {
+                        password = Credentials.GetPassword();
+                        if(password.Length==0||password==null)
+                        {
+                            throw new Exception();
+                        }
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show("Possible security problem!\nContact your administrator.");
+                    }
+
+                    */
                 try
                 {
+                    username = Credentials.GetUsername();
                     password = Credentials.GetPassword();
-                    if(password.Length==0||password==null)
+                    if (password.Length == 0 || password == null)
                     {
                         throw new Exception();
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Possible security problem!\nContact your administrator.");
+                    Form1 f = new Form1();
+                    f.ShowDialog();
                 }
-
-
 
                 /*  try
                   {

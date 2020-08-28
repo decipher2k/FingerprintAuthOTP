@@ -20,6 +20,7 @@ namespace CredNet.Sample
                     cred.Username = username;
                     cred.Target = name;
                     cred.Type = CredentialType.Generic;
+                   
                     cred.PersistanceType = PersistanceType.LocalComputer;
                     cred.Save();
                 }
