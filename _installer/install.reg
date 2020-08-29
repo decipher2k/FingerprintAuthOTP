@@ -1,0 +1,4 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{f264df76-2c20-4884-8f05-7b75bb455b35}]
+@="Credential Provider.NET"
