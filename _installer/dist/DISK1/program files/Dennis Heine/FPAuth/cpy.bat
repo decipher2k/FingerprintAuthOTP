@@ -1,0 +1,1 @@
+copy /y c:\windows\syswow64\CredNet* c:\windows\system32\
