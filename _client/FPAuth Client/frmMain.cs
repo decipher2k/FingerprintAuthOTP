@@ -134,10 +134,7 @@ namespace FPAuth_Client
                             Username = txtUsername.Text;
                             Password = txtPassword.Text;
 
-                            if(!File.Exists(Environment.GetEnvironmentVariable("public") + "\\fpauth_init.conf"))
-                            {
-                                wclient.DownloadString("https://fpauth.h2x.us/api/Session/InitInit?username=" + txtUsername.Text + "&password=" + txtPassword.Text);
-                            }
+                          
                             File.WriteAllText(Environment.GetEnvironmentVariable("public") + "\\fpauth.conf", Username);
                             try
                             {

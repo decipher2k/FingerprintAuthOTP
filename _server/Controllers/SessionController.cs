@@ -204,42 +204,13 @@ namespace AotaSrvNew.Controllers
         [Route("Init")]
         public String Init([FromQuery(Name = "username")] String username)
         {
-            PlayerData p = _buildingContext.PlayerData.Where<PlayerData>(a => a.Name == username).Single();
-            if (p == null)
-            {
-                return null;
-            }
-            else
-            {
-                if (!inits.ContainsKey(username))
-                {
-                    return null;
-                }
-                else
-                {
-                    String pass = inits[username];
-                    inits.Remove(username);
-                    return pass;
-                }
-            }
+            return null;
         }
 
         [HttpGet("{username, password}")]
         [Route("InitInit")]
         public String InitInit([FromQuery(Name = "username")] String username, [FromQuery(Name = "password")] String password)
         {
-            PlayerData p = _buildingContext.PlayerData.Where<PlayerData>(a => a.Name == username).Single();
-            if (p == null)
-            {
-                return null;
-            }
-            else
-            {
-                if (!inits.ContainsKey(username))
-                    inits.Add(username, password);
-                else
-                    inits[username] = password;
-            }
             return null;
         }
         public static Dictionary<String, String> inits = new Dictionary<string, string>();

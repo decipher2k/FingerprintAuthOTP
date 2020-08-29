@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pcd\\Documents\\AotaSrvNew\\AotaSrvNew.csproj": {}
+    "C:\\Users\\pcd\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\AotaSrvNew.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pcd\\Documents\\AotaSrvNew\\AotaSrvNew.csproj": {
+    "C:\\Users\\pcd\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\AotaSrvNew.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pcd\\Documents\\AotaSrvNew\\AotaSrvNew.csproj",
+        "projectUniqueName": "C:\\Users\\pcd\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\AotaSrvNew.csproj",
         "projectName": "AotaSrvNew",
-        "projectPath": "C:\\Users\\pcd\\Documents\\AotaSrvNew\\AotaSrvNew.csproj",
+        "projectPath": "C:\\Users\\pcd\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\AotaSrvNew.csproj",
         "packagesPath": "C:\\Users\\pcd\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pcd\\Documents\\AotaSrvNew\\obj\\",
+        "outputPath": "C:\\Users\\pcd\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pcd\\AppData\\Roaming\\NuGet\\NuGet.Config",

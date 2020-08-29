@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <Reference Include="Otp.NET">
-      <HintPath>..\..\Downloads\Otp.NET.dll</HintPath>
+      <HintPath>..\..\..\AotaSrvNew\bin\Debug\netcoreapp3.1\Otp.NET.dll</HintPath>
     </Reference>
   </ItemGroup>
 
