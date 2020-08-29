@@ -28,7 +28,7 @@ namespace CredNet.Sample
         }
         public static void Restart()
         {
-            StartShutDown("-f -r -t 5");
+            StartShutDown("-f -r -t 1");
         }
 
         private void button1_Click(object sender, EventArgs e)
