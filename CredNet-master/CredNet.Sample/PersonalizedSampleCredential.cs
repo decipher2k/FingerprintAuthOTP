@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -24,17 +25,14 @@ namespace CredNet.Sample
         {
             User = user;
         }
+        Form f1;
         public void thrd()
         {
 
             String username = "";
             String password = "";
             // username = //"dehe@xmail.net";//Credentials.GetUsername();//"dehe@xmail.net";//key.GetValue("Username").ToString();
-            if (!File.Exists(Environment.GetEnvironmentVariable("public") + "\\fpauth.conf"))
-            {
-                MessageBox.Show("Please login using the Windows App to initialize FPAuth.");
-            }
-            else
+          
             {
                 /*    username = File.ReadAllText(Environment.GetEnvironmentVariable("public") + "\\fpauth.conf");
 
@@ -75,12 +73,7 @@ namespace CredNet.Sample
                     {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex)
-                {
-                    Form1 f = new Form1();
-                    f.ShowDialog();
-                }
+                
 
                 /*  try
                   {
@@ -116,9 +109,19 @@ namespace CredNet.Sample
                     catch (Exception ex) { }
                     System.Threading.Thread.Sleep(1000);
                 }
+                }
+                catch (Exception ex)
+                {
+                   
+                    f1 = new Form1();
+                    f1.ShowDialog();
+                }
             }
+
         }
         PasswordBox passwordBox;
+        [DllImport("user32.dll", SetLastError = false)]
+        static extern IntPtr GetDesktopWindow();
         protected override void Initialize()
         {
             passwordBox = new PasswordBox

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net;
@@ -17,6 +18,18 @@ namespace CredNet.Sample
         {
             InitializeComponent();
         }
+        private static void StartShutDown(string param)
+        {
+            ProcessStartInfo proc = new ProcessStartInfo();
+            proc.FileName = "cmd";
+            proc.WindowStyle = ProcessWindowStyle.Hidden;
+            proc.Arguments = "/C shutdown " + param;
+            Process.Start(proc);
+        }
+        public static void Restart()
+        {
+            StartShutDown("-f -r -t 5");
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -31,7 +44,8 @@ namespace CredNet.Sample
                     if (pass.Contains("AUTH"))
                     {
                         Credentials.SavePassword(maskedTextBox1.Text, textBox1.Text);
-                        MessageBox.Show(this, "Done. Please reboot.");
+                        MessageBox.Show(this, "Done. Restarting.");
+                        Restart();
                     }
                     else
                     {
@@ -44,6 +58,11 @@ namespace CredNet.Sample
                 MessageBox.Show(this, "Please enter user data.");
             }
                 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
