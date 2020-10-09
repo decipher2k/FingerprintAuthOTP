@@ -1,0 +1,11 @@
+C:\Users\denni\Documents\GitHub\FingerprintAuthOTP\typer\Typer\Typer\bin\Debug\Typer.exe.config
+C:\Users\denni\Documents\GitHub\FingerprintAuthOTP\typer\Typer\Typer\bin\Debug\Typer.exe
+C:\Users\denni\Documents\GitHub\FingerprintAuthOTP\typer\Typer\Typer\bin\Debug\Typer.pdb
+C:\Users\denni\Documents\GitHub\FingerprintAuthOTP\typer\Typer\Typer\bin\Debug\CredentialManagement.dll
+C:\Users\denni\Documents\GitHub\FingerprintAuthOTP\typer\Typer\Typer\bin\Debug\WindowsInput.dll
+C:\Users\denni\Documents\GitHub\FingerprintAuthOTP\typer\Typer\Typer\bin\Debug\WindowsInput.xml
+C:\Users\denni\Documents\GitHub\FingerprintAuthOTP\typer\Typer\Typer\obj\Debug\Typer.csprojAssemblyReference.cache
+C:\Users\denni\Documents\GitHub\FingerprintAuthOTP\typer\Typer\Typer\obj\Debug\Typer.csproj.CoreCompileInputs.cache
+C:\Users\denni\Documents\GitHub\FingerprintAuthOTP\typer\Typer\Typer\obj\Debug\Typer.csproj.CopyComplete
+C:\Users\denni\Documents\GitHub\FingerprintAuthOTP\typer\Typer\Typer\obj\Debug\Typer.exe
+C:\Users\denni\Documents\GitHub\FingerprintAuthOTP\typer\Typer\Typer\obj\Debug\Typer.pdb

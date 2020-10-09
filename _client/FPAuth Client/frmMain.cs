@@ -28,11 +28,12 @@ namespace FPAuth_Client
         private String Masterpass="";
         private bool PressEnter = false;
         private bool isLoggedIn = false;
+        private String session = "";
 
         public frmMain(bool hidden)
         {
             InitializeComponent();
-            backgroundWorker.RunWorkerAsync();
+            
             try
             {
                 RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Heine\FPLogin");
@@ -43,7 +44,8 @@ namespace FPAuth_Client
                     Password = Credentials.GetPassword();
                     if (Password != null && Password != "")
                     {
-                        txtPassword.Text = Password;
+                        //txtPassword.Text = Password;
+                        session = Password;
                         doLogin();
                         cbAutostart.Checked = TaskSched.isTaskEnabled();
                         if(key.GetValue("PressEnter") != null)
@@ -77,11 +79,13 @@ namespace FPAuth_Client
                 WebClient wclient = new WebClient();
                 try
                 {
-                    String pass = wclient.DownloadString("https://fpauth.h2x.us/api/Session/GetMasterPass?username="+Username+"&password="+Password);
+                    String pass = wclient.DownloadString("https://fpauth.h2x.us/api/Session/GetMasterPass?session="+session+"&username="+Username);
                     if (pass.Length > 0)
                     {
-                     
-                            SendKeys(pass);
+                        session=wclient.DownloadString("https://fpauth.h2x.us/api/Session/NewSession?session=" + session);
+                        Credentials.SavePassword(session, Username);
+                        SendKeys(pass);
+                        
                             if(cbPressEnter.Checked)
                                 SendEnterKey();
                         
@@ -91,7 +95,7 @@ namespace FPAuth_Client
                 System.Threading.Thread.Sleep(1000);
             }
         }
-
+        
         private void bnLogin_Click(object sender, EventArgs e)
         {
             if (isLoggedIn)
@@ -102,6 +106,13 @@ namespace FPAuth_Client
 
         private void doLogout()
         {
+            try
+            {
+                WebClient wclient = new WebClient();
+                String pass = wclient.DownloadString("https://fpauth.h2x.us/api/Session/DoLogout?session=" + session);                
+            }
+            catch (Exception ex) { }
+            Credentials.SavePassword("", Username);
             txtUsername.Enabled = true;
             txtPassword.Enabled = true;
             grpSettings.Enabled = false;
@@ -114,7 +125,7 @@ namespace FPAuth_Client
         }
         private void doLogin()
         {
-            if (txtUsername.Text == "" || txtPassword.Text == "")
+            if ((txtUsername.Text == "" || txtPassword.Text == "") && session=="")
             {
                 MessageBox.Show(this, "Please enter user data.\nYou can register using the Android app.", "Error");
             }
@@ -123,56 +134,58 @@ namespace FPAuth_Client
 
 
                 WebClient wclient = new WebClient();
-                String pass = wclient.DownloadString("https://fpauth.h2x.us/api/Session/DoLogin?username=" + txtUsername.Text + "&password=" + txtPassword.Text);
-                try
+
+                    try
                 {
-                    
+                    String pass = "";
+                    try
+                    {
+                        if (session != "")
+                            pass = wclient.DownloadString("https://fpauth.h2x.us/api/Session/NewSession?session=" + session);
+                    }
+                    catch (Exception ex) { }
+                    if(pass.Length==0)
+                        pass = wclient.DownloadString("https://fpauth.h2x.us/api/Session/DoLogin?username=" + txtUsername.Text + "&password=" + txtPassword.Text + "&type=cli");
+
                     if (pass.Length > 0)
                     {
-                        if (pass.Contains("AUTH"))
+                        Username = txtUsername.Text;
+                        Password = txtPassword.Text;
+                        session = pass;
+                        
+
+                        //File.WriteAllText(Environment.GetEnvironmentVariable("public") + "\\fpauth.conf", Username);
+                        try
                         {
-                            Username = txtUsername.Text;
-                            Password = txtPassword.Text;
-
-                          
-                            File.WriteAllText(Environment.GetEnvironmentVariable("public") + "\\fpauth.conf", Username);
-                            try
-                            {
-                                RegistryKey mkey = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Heine");
-                                mkey.CreateSubKey("FPLogin");
-                            }
-                            catch (Exception ex) { }
-                            try
-                            {
-                                RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Heine\FPLogin", true);
-                                key.SetValue("Username", Username);
-                            }
-                            catch (Exception ex) { }
-
-                            try
-                            {
-                              
-                            }
-                            catch (Exception ex) { }
-                            Credentials.SavePassword(Password,Username);
-                           // Credentials.SavePassword(Username,"FPAuthUser");
-
-                            txtUsername.Enabled = false;
-                            txtPassword.Enabled = false;
-                            isLoggedIn = true;
-                            grpSettings.Enabled = true;
-                            bnLogin.Text = "Logout";
+                            RegistryKey mkey = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Heine",true);
+                            Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Heine\FPLogin",true);
                         }
-                        else
+                        catch (Exception ex) { }
+                        try
                         {
-                            MessageBox.Show(this, "Login Error.\nYou can register using the Android app.", "Error");
+                            
+                 ///           RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Heine\FPLogin", true);
+                      //      key.SetValue("Username", Username);
                         }
+                        catch (Exception ex) { }
+        
+                        Credentials.SavePassword(session, Username);
+                        // Credentials.SavePassword(Username,"FPAuthUser");
 
+                        txtUsername.Enabled = false;
+                        txtPassword.Enabled = false;
+                        isLoggedIn = true;
+                        grpSettings.Enabled = true;
+                        bnLogin.Text = "Logout";
+                        backgroundWorker.RunWorkerAsync();
                     }
+                    else
+                    {
+                        MessageBox.Show(this, "Login Error.\nYou can register using the Android app.", "Error");
+                    }                
                 }
-                catch (Exception ex) { }
-
-
+                catch (Exception ex) { MessageBox.Show(this, "Login Error.\nYou can register using the Android app.", "Error"); Credentials.SavePassword("", Username); }
+        
             }
         }
         
@@ -254,7 +267,7 @@ namespace FPAuth_Client
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmAdd2FA f = new frmAdd2FA(txtUsername.Text, txtPassword.Text);
+            frmAdd2FA f = new frmAdd2FA(txtUsername.Text, session);
             f.ShowDialog();
         }
 

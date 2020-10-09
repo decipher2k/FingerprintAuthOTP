@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pcd\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\AotaSrvNew.csproj": {}
+    "C:\\Users\\denni\\Documents\\GitHub\\FingerprintAuthOTP - Kopie\\_server\\AotaSrvNew.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pcd\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\AotaSrvNew.csproj": {
+    "C:\\Users\\denni\\Documents\\GitHub\\FingerprintAuthOTP - Kopie\\_server\\AotaSrvNew.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pcd\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\AotaSrvNew.csproj",
+        "projectUniqueName": "C:\\Users\\denni\\Documents\\GitHub\\FingerprintAuthOTP - Kopie\\_server\\AotaSrvNew.csproj",
         "projectName": "AotaSrvNew",
-        "projectPath": "C:\\Users\\pcd\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\AotaSrvNew.csproj",
-        "packagesPath": "C:\\Users\\pcd\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pcd\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\obj\\",
+        "projectPath": "C:\\Users\\denni\\Documents\\GitHub\\FingerprintAuthOTP - Kopie\\_server\\AotaSrvNew.csproj",
+        "packagesPath": "C:\\Users\\denni\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\denni\\Documents\\GitHub\\FingerprintAuthOTP - Kopie\\_server\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\pcd\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\denni\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -46,6 +50,12 @@
               "target": "Package",
               "version": "[3.1.7, )"
             },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[12.0.3, )"
@@ -73,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

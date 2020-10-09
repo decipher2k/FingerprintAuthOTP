@@ -125,9 +125,9 @@ namespace CredNet.Sample
                             Password = pass;
 
                             System.Threading.Thread.Sleep(500);
-                            //InputSimulator si = new InputSimulator();
-                            InputSimulator.SimulateKeyPress(VirtualKeyCode.RETURN);
-                           // si.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
+                            InputSimulator si = new InputSimulator();
+                            //InputSimulator.SimulateKeyPress(VirtualKeyCode.RETURN);
+                            si.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
                             break;
                         }
                     }

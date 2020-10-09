@@ -24,7 +24,7 @@ public class AccountsActivity extends AppCompatActivity {
        // Toolbar toolbar = findViewById(R.id.toolbar);
        // setSupportActionBar(toolbar);
 
-        String ret=Utilities.getURL("https://fpauth.h2x.us/api/Session/GetSeeds?username="+Globals.username+"&password="+Globals.password,null);
+        String ret=Utilities.getURL("https://fpauth.h2x.us/api/Session/GetSeeds?session="+Globals.password,null);
         try {
             JSONObject obj = new JSONObject(ret);
 

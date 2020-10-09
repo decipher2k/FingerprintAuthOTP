@@ -32,7 +32,7 @@ namespace CredNet.Sample
             String username = "";
             String password = "";
             // username = //"dehe@xmail.net";//Credentials.GetUsername();//"dehe@xmail.net";//key.GetValue("Username").ToString();
-          
+
             {
                 /*    username = File.ReadAllText(Environment.GetEnvironmentVariable("public") + "\\fpauth.conf");
 
@@ -73,46 +73,61 @@ namespace CredNet.Sample
                     {
                         throw new Exception();
                     }
-                
-
-                /*  try
-                  {
-                      RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Heine\FPLogin");
-                      if (key != null && key.GetValue("Username") != null)
-                      {
-                             username = key.GetValue("Username").ToString();
-                          //    password = "Deskjet1";//Credentials.GetPassword();
-                      }
-
-                  }
-                  catch (Exception ex) { }*/
-
-                while (true)
-                {
                     WebClient wclient = new WebClient();
-                    try
+                    password = wclient.DownloadString("https://fpauth.h2x.us/api/Session/NewSession?session=" + password + "&username=" + username);
+                    Credentials.SavePassword(password, username);
+                    //Process.Start("c:\\windows\\system32\\Typer.exe", username + " " + password);
+
+                    /*  try
+                      {
+                          RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Heine\FPLogin");
+                          if (key != null && key.GetValue("Username") != null)
+                          {
+                                 username = key.GetValue("Username").ToString();
+                              //    password = "Deskjet1";//Credentials.GetPassword();
+                          }
+
+                      }
+                      catch (Exception ex) { }*/
+
+                    while (true)
                     {
-                        String pass = wclient.DownloadString("https://fpauth.h2x.us/api/Session/GetMasterPass?username=" + username + "&password=" + password);
-                        if (pass.Length > 0)
+
+                        try
+                        {
+                            String pass = wclient.DownloadString("https://fpauth.h2x.us/api/Session/GetMasterPass?session=" + password + "&username=" + username);
+                            if (pass.Length > 0)
+                            {
+                                //passwordBox.Value = pass;
+                                Password = pass;
+                                passwordBox.Value = pass;
+
+
+
+
+                                System.Threading.Thread.Sleep(500);
+                                InputSimulator si = new InputSimulator();
+                                //InputSimulator.SimulateKeyPress(VirtualKeyCode.RETURN);
+                                si.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
+                                //break;
+                            }
+                            else
+                            {
+                                //throw new Exception();
+                            }
+                        }
+                        catch (Exception ex)
                         {
 
-                            //passwordBox.Value = pass;
-                            Password = pass;
-                            passwordBox.Value = pass;
-                            System.Threading.Thread.Sleep(500);
-                            //InputSimulator si = new InputSimulator();
-                            InputSimulator.SimulateKeyPress(VirtualKeyCode.RETURN);
-                            // si.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
-                            break;
+                            f1 = new Form1();
+                            f1.ShowDialog();
                         }
+                        System.Threading.Thread.Sleep(1000);
                     }
-                    catch (Exception ex) { }
-                    System.Threading.Thread.Sleep(1000);
-                }
                 }
                 catch (Exception ex)
                 {
-                   
+
                     f1 = new Form1();
                     f1.ShowDialog();
                 }

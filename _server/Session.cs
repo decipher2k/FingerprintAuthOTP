@@ -14,5 +14,6 @@ namespace AotaSrvNew
         public String sessionKey { get; set; }
         public long lastUpdate { get; set; }        
         public long idUser { get; set; }
+        public String type { get; set; }
     }
 }

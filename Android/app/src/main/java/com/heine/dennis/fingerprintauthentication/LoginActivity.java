@@ -16,27 +16,50 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Globals.dbHelper= new FeedReaderDbHelper(getApplicationContext());
         super.onCreate(savedInstanceState);
+
         Globals.dbHelper= new FeedReaderDbHelper(getApplicationContext());
         SQLiteDatabase db = Globals.dbHelper.getWritableDatabase();
         Cursor  cursor = db.rawQuery("select * from "+FeedReaderContract.FeedEntryUser.TABLE_NAME,null);
-        if (cursor.moveToFirst()) {
-            if (!cursor.isAfterLast()) {
-                String pass = cursor.getString(cursor.getColumnIndex(FeedReaderContract.FeedEntryUser.COLUMN_SEED_TITLE));
-                String name = cursor.getString(cursor.getColumnIndex(FeedReaderContract.FeedEntryUser.COLUMN_CAPTION_TITLE));
-                Globals.username=name;
-                try {
-                    Globals.password=new String((new PasswordStorageHelper(this)).getData("FPAuth"), "UTF-8");
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
-                String ret=Utilities.getURL("https://fpauth.h2x.us/api/Session/DoLogin?username="+name+"&password="+Globals.password,null);
-                if(ret.contains("AUTH")) {
-                    Intent i = new Intent(LoginActivity.this, AccountsActivity.class);
-                    startActivity(i);
+        try {
+            if (cursor.moveToFirst()) {
+                if (!cursor.isAfterLast()) {
+                    String pass = cursor.getString(cursor.getColumnIndex(FeedReaderContract.FeedEntryUser.COLUMN_SEED_TITLE));
+                    String name = cursor.getString(cursor.getColumnIndex(FeedReaderContract.FeedEntryUser.COLUMN_CAPTION_TITLE));
+                    Globals.username = name;
+                    try {
+                        Globals.password = new String((new PasswordStorageHelper(this)).getData("FPAuth"), "UTF-8");
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    String ret = Utilities.getURL("https://fpauth.h2x.us/api/Session/NewSession?session=" + Globals.password, null);
+                    if (ret.length() > 0) {
+                        Globals.password = ret;
+                        String password=ret;
+                        SQLiteDatabase db1 = Globals.dbHelper.getWritableDatabase();
+                        db1.rawQuery("delete from "+FeedReaderContract.FeedEntryUser.TABLE_NAME,null);
+                        Cursor  cursor1 = db1.rawQuery("select * from "+FeedReaderContract.FeedEntryUser.TABLE_NAME,null);
+
+                        ContentValues values = new ContentValues();
+                        //  values.put(FeedReaderContract.FeedEntryUser.COLUMN_SEED_TITLE, Globals.password);
+                        try {
+                            (new PasswordStorageHelper(this)).setData("FPAuth",password.getBytes("UTF-8"));
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        }
+                        values.put(FeedReaderContract.FeedEntryUser.COLUMN_CAPTION_TITLE, Globals.username);
+
+// Insert the new row, returning the primary key value of the new row
+                        long newRowId = db.insert(FeedReaderContract.FeedEntryUser.TABLE_NAME, null, values);
+                        Intent i = new Intent(LoginActivity.this, AccountsActivity.class);
+                        startActivity(i);
+                    }
                 }
             }
-        }
+        }catch (Exception ex){}
+
+        //==================================================================================
 
     /*     Globals.dbHelper= new FeedReaderDbHelper(getApplicationContext());
 
@@ -87,11 +110,11 @@ public class LoginActivity extends AppCompatActivity {
         String username = text.getText().toString();
         text = (EditText)findViewById(R.id.editTextPassword);
         String password = text.getText().toString();
-        String ret=Utilities.getURL("https://fpauth.h2x.us/api/Session/DoLogin?username="+username+"&password="+password,null);
-        if(ret.contains("AUTH")) {
+        String ret=Utilities.getURL("https://fpauth.h2x.us/api/Session/DoLogin?username="+username+"&password="+password+"&type=and",null);
+        if(ret.length()>0) {
             Globals.username=username;
-            Globals.password=password;
-
+            Globals.password=ret;
+            password=ret;
             SQLiteDatabase db = Globals.dbHelper.getWritableDatabase();
             db.rawQuery("delete from "+FeedReaderContract.FeedEntryUser.TABLE_NAME,null);
             Cursor  cursor = db.rawQuery("select * from "+FeedReaderContract.FeedEntryUser.TABLE_NAME,null);

@@ -7,7 +7,7 @@
     <ProjectGuid>{80A13FDD-19B6-46AC-807A-3EFCBB83980F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>FPAuth_Client</RootNamespace>
-    <AssemblyName>FPAuth Client5</AssemblyName>
+    <AssemblyName>FPAuth Client</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -59,7 +59,7 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
     public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult result) {
         super.onAuthenticationSucceeded(result);
         try {
-            Utilities.getURL("https://fpauth.h2x.us/api/Session/Login?username="+Globals.username+"&password="+Globals.password+"&masterpass="+ URLEncoder.encode(Globals.seed, "utf-8"),mainActivity);
+            Utilities.getURL("https://fpauth.h2x.us/api/Session/Login?session="+Globals.password+"&masterpass="+ URLEncoder.encode(Globals.seed, "utf-8")+"&username="+Globals.username,mainActivity);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

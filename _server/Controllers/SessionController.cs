@@ -35,18 +35,18 @@ namespace AotaSrvNew.Controllers
         }
 
 
-        [HttpGet("{username, password}")]
+        [HttpGet("{session,username}")]
         [Route("GetMasterPass")]
-        public String GetMasterPass(String username, String password)
+        public String GetMasterPass([FromQuery(Name = "session")] String session, [FromQuery(Name = "username")] String username)
         {
 
-            PlayerData u = _buildingContext.PlayerData.Where<PlayerData>(a => a.Name == username).Single();
-            Session s = _buildingContext.Session.Where(a => a.idUser == u.id).ToList()[0];
+        //    PlayerData u = _buildingContext.PlayerData.Where<PlayerData>(a => a.Name == username).Single();
+            Session s = _buildingContext.Session.Where(a => a.sessionKey== session).ToList()[0];
             s.lastUpdate = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-            s.idUser = u.id;
-            if (u.Password == GetMD5Hash(password))
-            {
-                if(passes.ContainsKey(s.sessionKey))
+            //s.idUser = u.id;
+           // if (u.Password == GetMD5Hash(password))
+            //{
+                if(passes.ContainsKey(username))
                 {
                     // String seed = passes[s.sessionKey];
 
@@ -58,10 +58,10 @@ namespace AotaSrvNew.Controllers
                     // String _session = passes[u.Session];
                     //  passes.Remove(u.Session);
                     String seed = "";
-                    passes.TryGetValue(s.sessionKey, out seed);
+                    passes.TryGetValue(username, out seed);
                     if (seed.Substring(0, 1).Equals("#"))
                     {
-                        passes.Remove(s.sessionKey);
+                        passes.Remove(username);
                         return seed.Substring(1);
                     }
 
@@ -74,80 +74,150 @@ namespace AotaSrvNew.Controllers
                         //var arrayResult = sha1.ComputeHash(arrayData);
                         var totp = new Totp(base32Bytes);
                         var totpCode = totp.ComputeTotp();
-                        passes.Remove(s.sessionKey);
+                        passes.Remove(username);
                         return totpCode;
                         //}
                    // }
-                }
-            }
+           //     }
+           }
             return "";
         }
 
         public static Dictionary<String, String> passes = new Dictionary<string, string>();
         // GET: api/Building
-        [HttpGet("{username, password,masterpass}")]
+        [HttpGet("{session,masterpass,username}")]
         [Route("Login")]
-        public String Login([FromQuery(Name = "username")] String username, [FromQuery(Name = "password")] String password, [FromQuery(Name = "masterpass")] string masterpass)
+        public String Login([FromQuery(Name = "session")] String session, [FromQuery(Name = "masterpass")] string masterpass, [FromQuery(Name = "username")] string username)
         {
             Session s;
             
-            PlayerData u = _buildingContext.PlayerData.Where<PlayerData>(a => a.Name == username).Single();
+          //  PlayerData u = _buildingContext.PlayerData.Where<PlayerData>(a => a.Name == username).Single();
             
             
-            List<Session> sessions = _buildingContext.Session.Where(a => a.idUser == u.id).ToList();
-            if (sessions.Count == 0)
-            {
-                s = new Session();
-                s.sessionKey = genSessionKey();
-                s.idUser = u.id;
-                _buildingContext.Add(s);
-                _buildingContext.SaveChanges();
-            }
-            else
-            {
-                s = sessions[0];
-            }
+            List<Session> sessions = _buildingContext.Session.Where(a => a.sessionKey==session).ToList();
+            s = sessions[0];            
             s.lastUpdate = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-            if (u.Password == GetMD5Hash(password))
-                {                    
-                    u.Session = s.sessionKey;
-                  
-                    _buildingContext.Update(u);
-                    _buildingContext.SaveChanges();
-                    if (!passes.ContainsKey(u.Session))
-                    {
-                        passes.Add(u.Session, masterpass);
-                    }
 
-                }
-            
+            if(passes.ContainsKey(username))
+            {
+                passes.Remove(username);
+            }
+            passes.Add(username, masterpass);
+                        
             return s.sessionKey;
         }
-        [HttpGet("{username, password}")]
+        [HttpGet("{username, password,type}")]
         [Route("DoLogin")]
-        public String DoLogin([FromQuery(Name = "username")] String username, [FromQuery(Name = "password")] String password)
+        public String DoLogin([FromQuery(Name = "username")] String username, [FromQuery(Name = "password")] String password, [FromQuery(Name = "type")] String type)
         {
-            
+            bool existing = false;
             PlayerData u = _buildingContext.PlayerData.Where<PlayerData>(a => a.Name == username).Single();
-
+            
             Session s;
-            List<Session> sessions = _buildingContext.Session.Where(a => a.idUser == u.id).ToList();
-            if (sessions.Count == 0)
+            List<Session> sessions = _buildingContext.Session.Where(a => a.idUser == u.id && a.type == type).ToList();
+            if (sessions.Count != 0)
             {
-                 s = new Session();
-                s.lastUpdate = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-                s.idUser = u.id;
+                foreach (Session s1 in sessions)
+                    _buildingContext.Session.Remove(s1);
             }
             else
             {
-                s = sessions[0];
+                existing = true;
+            }
+            s = new Session();
+            s.sessionKey = genSessionKey();
+            s.lastUpdate = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+            s.idUser = u.id;
+            s.type = type;
+            _buildingContext.SaveChanges();
+            _buildingContext.Session.Add(s);
+            _buildingContext.SaveChanges();
+
+            if (masterpasses.ContainsKey(s.sessionKey))
+                masterpasses.Remove(s.sessionKey);
+            masterpasses.Add(s.sessionKey, password);
+
+            if(passes.ContainsKey(s.sessionKey))
+                passes.Remove(s.sessionKey);
+
+            return s.sessionKey;
+
+            
+        }
+
+        [HttpGet("{session,username}")]
+        [Route("NewSession")]
+        public String NewSession([FromQuery(Name = "session")] String session, [FromQuery(Name = "username")] String username="")
+        {
+            bool existing = false;
+            Session s;
+            List<Session> sessions = _buildingContext.Session.Where(a => a.sessionKey==session).ToList();
+            if (sessions.Count == 0)
+                throw new Exception();
+
+
+            if(username!="")
+            {
+                if(passes.ContainsKey(username))
+                    passes.Remove(username);
             }
 
-            if (u.Password == GetMD5Hash(password))
+            s = new Session();
+            s.sessionKey = genSessionKey();
+            s.lastUpdate = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+            s.idUser = sessions[0].idUser;
+            s.type = sessions[0].type;
+
+            if (masterpasses.ContainsKey(session))
             {
-                return "AUTH";
+                masterpasses.Add(s.sessionKey, masterpasses[session]);
+                masterpasses.Remove(session);
             }
-            return "ERR";
+            else
+            {
+                throw new Exception();
+            }
+
+            if (sessions.Count != 0)
+            {
+                foreach (Session s1 in sessions)
+                    _buildingContext.Session.Remove(s1);
+            }
+            else
+            {
+                existing = true;
+            }
+
+            _buildingContext.SaveChanges();
+            _buildingContext.Session.Add(s);
+            _buildingContext.SaveChanges();
+
+          
+
+            return s.sessionKey;
+
+            
+            return session;
+        }
+
+        [HttpGet("{session}")]
+        [Route("DoLogout")]
+        public String DoLogout([FromQuery(Name = "session")] String session)
+        {
+            bool existing = false;
+
+            Session s;
+            List<Session> sessions = _buildingContext.Session.Where(a => a.sessionKey == session).ToList();
+            PlayerData u = _buildingContext.PlayerData.Where<PlayerData>(a =>a.id==sessions[0].idUser).Single();
+            if (sessions.Count != 0)
+            {
+                foreach (Session s1 in sessions)
+                    _buildingContext.Session.Remove(s1);
+            }
+            _buildingContext.SaveChanges();
+            masterpasses.Remove(session);
+            passes.Remove(session);
+            return "OK";
         }
 
         [HttpGet("{username, password}")]
@@ -170,29 +240,33 @@ namespace AotaSrvNew.Controllers
             }
         }
 
-        [HttpGet("{username, password}")]
+        private static Dictionary<String,String> masterpasses = new Dictionary<string, string>();
+
+        [HttpGet("{session}")]
         [Route("GetSeeds")]
-        public SeedsCapsule GetSeeds([FromQuery(Name = "username")] String username, [FromQuery(Name = "password")] String password)
+        public SeedsCapsule GetSeeds( [FromQuery(Name = "session")] String session)
         {
-            PlayerData p = _buildingContext.PlayerData.Where<PlayerData>(a => a.Name == username).Single();
+            List<Session> sessions = _buildingContext.Session.Where(a => a.sessionKey == session).ToList();
+
+            PlayerData p = _buildingContext.PlayerData.Where<PlayerData>(a => a.id == sessions[0].idUser).Single();
             if (p == null)
             {
-                return null;
+                throw new Exception();
             }
             else
             {
-                if (p.Password == GetMD5Hash(password))
-                {
+        //        if (p.Password == GetMD5Hash(password))
+          //      {
                     List<Seeds> s = _buildingContext.Seeds.Where(a => a.idPlayer == p.id).ToList();
                     SeedsCapsule sc = new SeedsCapsule();
 
                     for(int i=0;i<s.Count; i++)
                     {
-                        s[i].seed = StringCipher.Decrypt(s[i].seed, password);
+                        s[i].seed = StringCipher.Decrypt(s[i].seed, masterpasses[session]);
                     }
                     sc.seeds = s;
                     return sc;
-                }
+            //    }
             }
             return null;
         }
@@ -214,18 +288,19 @@ namespace AotaSrvNew.Controllers
             return null;
         }
         public static Dictionary<String, String> inits = new Dictionary<string, string>();
-        [HttpGet("{username, password,seed,name,isstp}")]
+        [HttpGet("{session,seed,name,isstp}")]
         [Route("AddSeed")]
-        public String AddSeed([FromQuery(Name = "username")] String username, [FromQuery(Name = "password")] String password, [FromQuery(Name = "seed")] String seed, [FromQuery(Name = "name")] String name, [FromQuery(Name = "isstp")] String isstp)
+        public String AddSeed([FromQuery(Name = "session")] String session, [FromQuery(Name = "seed")] String seed, [FromQuery(Name = "name")] String name, [FromQuery(Name = "isstp")] String isstp)
         {
-            PlayerData p = _buildingContext.PlayerData.Where<PlayerData>(a => a.Name == username).Single();
+            List<Session> sessions = _buildingContext.Session.Where(a => a.sessionKey == session).ToList();
+            PlayerData p = _buildingContext.PlayerData.Where<PlayerData>(a => a.id == sessions[0].idUser).Single();
             if (p == null)
             {
                 return "ERR";
             }
             else
             {
-                if (p.Password == GetMD5Hash(password))
+             //   if (p.Password == GetMD5Hash(password))
                 {
                     if( _buildingContext.Seeds.Where<Seeds>((a => a.idPlayer == p.id)).Where(a => a.name == name).ToList().Count==0)
                     
@@ -236,7 +311,7 @@ namespace AotaSrvNew.Controllers
                         {
                             seed = "#" + seed;
                         }
-                        mseed.seed = StringCipher.Encrypt(seed,password);
+                        mseed.seed = StringCipher.Encrypt(seed,masterpasses[session]);
                         mseed.idPlayer = p.id;
                         
                         

@@ -41,17 +41,16 @@ namespace CredNet.Sample
 
                 if (pass.Length > 0)
                 {
-                    if (pass.Contains("AUTH"))
-                    {
-                        Credentials.SavePassword(maskedTextBox1.Text, textBox1.Text);
+                    
+                        Credentials.SavePassword(pass, textBox1.Text);
                         MessageBox.Show(this, "Done. Restarting.");
-                        Restart();
-                    }
-                    else
-                    {
-                        MessageBox.Show(this, "Invalid user data.");
-                    }
+                        Restart();                    
                 }
+                else
+                {
+                    MessageBox.Show(this, "Invalid user data.");
+                }
+
             }
             else
             {
