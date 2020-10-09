@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="C:\Program Files (x86)\InstallShield\2020\Support\0409\buildreport.xsl"?>
+<BuildReport ProductName="FPAuth" ProductVersion="1.00.0000" Built="10-9-2020 10-50-14" Config="Product Configuration 11" Media="Release 1" Uncompressed="0.00 MB">
+  <Features>
+    <Feature Title="##ID_STRING1##">Main</Feature>
+  </Features>
+  <Components>
+    <Component x64="32">AllOtherFiles</Component>
+    <Component x64="32">AllOtherFiles1</Component>
+    <Component x64="32">AllOtherFiles2</Component>
+    <Component x64="32">AllOtherFiles3</Component>
+    <Component x64="32">CredNet.Sample.dll</Component>
+    <Component x64="32">CredNet.Sample.dll1</Component>
+    <Component x64="32">CredNet.Sample.dll2</Component>
+    <Component x64="32">CredNet.Sample.dll3</Component>
+    <Component x64="32" KeyPath="crednet.sample.dll">CredNet.Sample.dll4</Component>
+    <Component x64="32">CredNet.Sample.dll5</Component>
+    <Component x64="32" KeyPath="crednet.sample.dll1">CredNet.Sample.dll6</Component>
+    <Component x64="32">CredNet.dll</Component>
+    <Component x64="32">CredNet.dll1</Component>
+    <Component x64="32">CredNet.dll2</Component>
+    <Component x64="32">CredNet.dll3</Component>
+    <Component x64="32" KeyPath="crednet.dll">CredNet.dll4</Component>
+    <Component x64="32">CredNet.dll5</Component>
+    <Component x64="32" KeyPath="crednet.dll1">CredNet.dll6</Component>
+    <Component x64="32">CredentialManagement.dll</Component>
+    <Component x64="32">CredentialManagement.dll1</Component>
+    <Component x64="32" KeyPath="credentialmanagement.dll2">CredentialManagement.dll10</Component>
+    <Component x64="32">CredentialManagement.dll2</Component>
+    <Component x64="32">CredentialManagement.dll3</Component>
+    <Component x64="32">CredentialManagement.dll4</Component>
+    <Component x64="32" KeyPath="credentialmanagement.dll">CredentialManagement.dll5</Component>
+    <Component x64="32">CredentialManagement.dll6</Component>
+    <Component x64="32" KeyPath="credentialmanagement.dll1">CredentialManagement.dll7</Component>
+    <Component x64="32">CredentialManagement.dll8</Component>
+    <Component x64="32">CredentialManagement.dll9</Component>
+    <Component x64="32">FPAuth_Client.exe</Component>
+    <Component x64="32">FPAuth_Client.exe1</Component>
+    <Component x64="32">FPAuth_Client5.exe</Component>
+    <Component x64="32">FPAuth_Client5.exe1</Component>
+    <Component x64="32" KeyPath="fpauth_client5.exe">FPAuth_Client5.exe2</Component>
+    <Component x64="32">ISRegistryComponent</Component>
+    <Component x64="32">InputSimulator.dll</Component>
+    <Component x64="32">InputSimulator.dll1</Component>
+    <Component x64="32">InputSimulator.dll2</Component>
+    <Component x64="32">InputSimulator.dll3</Component>
+    <Component x64="32">Microsoft.Win32.TaskScheduler.dll</Component>
+    <Component x64="32">Microsoft.Win32.TaskScheduler.dll1</Component>
+    <Component x64="32">Microsoft.Win32.TaskScheduler.dll2</Component>
+    <Component x64="32" KeyPath="microsoft.win32.taskschedule">Microsoft.Win32.TaskScheduler.dll3</Component>
+    <Component x64="32">PeanutButter.TrayIcon.dll</Component>
+    <Component x64="32">PeanutButter.TrayIcon.dll1</Component>
+    <Component x64="32">PeanutButter.TrayIcon.dll2</Component>
+    <Component x64="32" KeyPath="peanutbutter.trayicon.dll">PeanutButter.TrayIcon.dll3</Component>
+    <Component x64="32">System.Runtime.CompilerServices.Unsafe.dll</Component>
+    <Component x64="32">System.Runtime.CompilerServices.Unsafe.dll1</Component>
+    <Component x64="32">System.Runtime.CompilerServices.Unsafe.dll2</Component>
+    <Component x64="32">System.Runtime.CompilerServices.Unsafe.dll3</Component>
+    <Component x64="32" KeyPath="system.runtime.compilerservi">System.Runtime.CompilerServices.Unsafe.dll4</Component>
+    <Component x64="32">System.Runtime.CompilerServices.Unsafe.dll5</Component>
+    <Component x64="32" KeyPath="system.runtime.compilerservi1">System.Runtime.CompilerServices.Unsafe.dll6</Component>
+    <Component x64="32">WindowsInput.dll</Component>
+    <Component x64="32">WindowsInput.dll1</Component>
+    <Component x64="32">WindowsInput.dll2</Component>
+    <Component x64="32" KeyPath="windowsinput.dll1">WindowsInput.dll3</Component>
+    <Component x64="32">WindowsInput.dll4</Component>
+    <Component x64="32" KeyPath="windowsinput.dll2">WindowsInput.dll5</Component>
+    <Component x64="32">WindowsInput.dll6</Component>
+    <Component x64="32">WindowsInput.dll7</Component>
+    <Component x64="32" KeyPath="windowsinput.dll">WindowsInput.dll8</Component>
+    <Component x64="32">fpa.exe</Component>
+  </Components>
+  <Prerequisites />
+  <MergeModules />
+  <DynamicLinks />
+  <Files>
+    <File Destination="[WindowsFolder]" Component="System.Runtime.CompilerServices.Unsafe.dll4" Modified="05.10.2020 10:09:38" Size="16968" Version="4.700.19.56404">System.Runtime.CompilerServices.Unsafe.dll</File>
+    <File Destination="[WindowsFolder]" Component="CredentialManagement.dll5" Modified="14.12.2014 00:02:56" Size="28672" Version="1.0.2.0">CredentialManagement.dll</File>
+    <File Destination="{INSTALLDIR} [ProgramFilesFolder]Dennis Heine\FPAuth" Component="AllOtherFiles" Modified="06.10.2020 18:03:27" Size="4286" Version="">-fingerprint_90738 - Kopie.png</File>
+    <File Destination="{INSTALLDIR} [ProgramFilesFolder]Dennis Heine\FPAuth" Component="AllOtherFiles" Modified="06.10.2020 18:03:27" Size="4286" Version="">-fingerprint_90738.ico</File>
+    <File Destination="[WindowsFolder]" Component="AllOtherFiles3" Modified="09.10.2020 10:28:59" Size="479" Version="">cpy.bat</File>
+    <File Destination="[WindowsFolder]" Component="AllOtherFiles3" Modified="09.10.2020 10:37:51" Size="428" Version="">cpy.ps1</File>
+    <File Destination="[WindowsFolder]" Component="CredNet.Sample.dll4" Modified="09.10.2020 09:04:50" Size="28160" Version="1.0.0.0">CredNet.Sample.dll</File>
+    <File Destination="[WindowsFolder]" Component="CredNet.dll4" Modified="09.10.2020 08:41:31" Size="156160" Version="1.0.0.0">CredNet.dll</File>
+    <File Destination="[WindowsFolder]" Component="WindowsInput.dll3" Modified="12.12.2013 12:46:56" Size="22528" Version="1.0.4.0">WindowsInput.dll</File>
+    <File Destination="[WindowsFolder]" Component="CredNet.Sample.dll6" Modified="09.10.2020 09:04:50" Size="28160" Version="1.0.0.0">CredNet.Sample.dll</File>
+    <File Destination="[WindowsFolder]" Component="CredNet.dll6" Modified="09.10.2020 08:41:31" Size="156160" Version="1.0.0.0">CredNet.dll</File>
+    <File Destination="[WindowsFolder]" Component="CredentialManagement.dll7" Modified="14.12.2014 00:02:56" Size="28672" Version="1.0.2.0">CredentialManagement.dll</File>
+    <File Destination="[WindowsFolder]" Component="System.Runtime.CompilerServices.Unsafe.dll6" Modified="05.10.2020 10:09:38" Size="16968" Version="4.700.19.56404">System.Runtime.CompilerServices.Unsafe.dll</File>
+    <File Destination="[WindowsFolder]" Component="WindowsInput.dll5" Modified="12.12.2013 12:46:56" Size="22528" Version="1.0.4.0">WindowsInput.dll</File>
+    <File Destination="{INSTALLDIR} [ProgramFilesFolder]Dennis Heine\FPAuth" Component="CredentialManagement.dll10" Modified="06.10.2020 18:03:27" Size="28672" Version="1.0.2.0">CredentialManagement.dll</File>
+    <File Destination="{INSTALLDIR} [ProgramFilesFolder]Dennis Heine\FPAuth" Component="FPAuth_Client5.exe2" Modified="06.10.2020 19:08:31" Size="43520" Version="1.0.0.0">FPAuth Client5.exe</File>
+    <File Destination="{INSTALLDIR} [ProgramFilesFolder]Dennis Heine\FPAuth" Component="Microsoft.Win32.TaskScheduler.dll3" Modified="06.10.2020 18:03:27" Size="327680" Version="2.8.18.0">Microsoft.Win32.TaskScheduler.dll</File>
+    <File Destination="{INSTALLDIR} [ProgramFilesFolder]Dennis Heine\FPAuth" Component="PeanutButter.TrayIcon.dll3" Modified="06.10.2020 18:03:27" Size="16384" Version="1.0.0.0">PeanutButter.TrayIcon.dll</File>
+    <File Destination="{INSTALLDIR} [ProgramFilesFolder]Dennis Heine\FPAuth" Component="WindowsInput.dll8" Modified="06.10.2020 18:03:27" Size="22528" Version="1.0.4.0">WindowsInput.dll</File>
+  </Files>
+</BuildReport>
