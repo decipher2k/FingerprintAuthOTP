@@ -128,14 +128,14 @@
             this.grpSettings.Enabled = false;
             this.grpSettings.Location = new System.Drawing.Point(12, 171);
             this.grpSettings.Name = "grpSettings";
-            this.grpSettings.Size = new System.Drawing.Size(162, 102);
+            this.grpSettings.Size = new System.Drawing.Size(162, 104);
             this.grpSettings.TabIndex = 6;
             this.grpSettings.TabStop = false;
             this.grpSettings.Text = "Settings";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(19, 63);
+            this.button1.Location = new System.Drawing.Point(19, 73);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 23);
             this.button1.TabIndex = 10;
@@ -153,6 +153,7 @@
             this.cbAutostart.Text = "Start with Windows";
             this.cbAutostart.UseVisualStyleBackColor = true;
             this.cbAutostart.CheckedChanged += new System.EventHandler(this.cbAutostart_CheckedChanged);
+            this.cbAutostart.Click += new System.EventHandler(this.cbAutostart_Click);
             // 
             // cbPressEnter
             // 
@@ -174,7 +175,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(190, 268);
+            this.ClientSize = new System.Drawing.Size(190, 287);
             this.Controls.Add(this.grpSettings);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -182,7 +183,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmMain";
-            this.Text = "FPAuth";
+            this.Text = "Fingerprint Login";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.groupBox1.ResumeLayout(false);

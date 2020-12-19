@@ -182,3 +182,30 @@ C:\Users\denni\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\bin\Deb
 C:\Users\denni\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\obj\Debug\FPAuth Client.csprojAssemblyReference.cache
 C:\Users\denni\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\obj\Debug\FPAuth Client.exe
 C:\Users\denni\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\obj\Debug\FPAuth Client.pdb
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\bin\Debug\FPAuth Client.exe.config
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\bin\Debug\FPAuth Client.exe
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\bin\Debug\FPAuth Client.pdb
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\bin\Debug\CredentialManagement.dll
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\bin\Debug\Microsoft.Win32.TaskScheduler.dll
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\bin\Debug\PeanutButter.TrayIcon.dll
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\bin\Debug\WindowsInput.dll
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\bin\Debug\Microsoft.Win32.TaskScheduler.xml
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\bin\Debug\PeanutButter.TrayIcon.xml
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\bin\Debug\WindowsInput.xml
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\bin\Debug\de\Microsoft.Win32.TaskScheduler.resources.dll
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\bin\Debug\es\Microsoft.Win32.TaskScheduler.resources.dll
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\bin\Debug\fr\Microsoft.Win32.TaskScheduler.resources.dll
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\bin\Debug\it\Microsoft.Win32.TaskScheduler.resources.dll
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\bin\Debug\pl\Microsoft.Win32.TaskScheduler.resources.dll
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\bin\Debug\ru\Microsoft.Win32.TaskScheduler.resources.dll
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\bin\Debug\zh-CN\Microsoft.Win32.TaskScheduler.resources.dll
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\obj\Debug\FPAuth_Client.frmAdd2FA.resources
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\obj\Debug\FPAuth_Client.frmMain.resources
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\obj\Debug\FPAuth_Client.frmRegister.resources
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\obj\Debug\FPAuth_Client.Properties.Resources.resources
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\obj\Debug\FPAuth Client.csproj.GenerateResource.cache
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\obj\Debug\FPAuth Client.csproj.CoreCompileInputs.cache
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\obj\Debug\FPAuth Client.csproj.CopyComplete
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\obj\Debug\FPAuth Client.exe
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\obj\Debug\FPAuth Client.pdb
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\obj\Debug\FPAuth Client.csprojAssemblyReference.cache

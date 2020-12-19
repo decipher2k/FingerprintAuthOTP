@@ -36,11 +36,12 @@ namespace FPAuth_Client
             
             try
             {
-                RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Heine\FPLogin");
+                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Heine\FPLogin");
                 if (key != null && key.GetValue("Username")!=null)
                 {
                     Username = key.GetValue("Username").ToString();
                     txtUsername.Text = Username;
+                    Password = Credentials.GetPassword();
                     Password = Credentials.GetPassword();
                     if (Password != null && Password != "")
                     {
@@ -48,6 +49,9 @@ namespace FPAuth_Client
                         session = Password;
                         doLogin();
                         cbAutostart.Checked = TaskSched.isTaskEnabled();
+
+                        
+
                         if(key.GetValue("PressEnter") != null)
                         {
                             cbPressEnter.Checked=key.GetValue("PressEnter").ToString() =="true";
@@ -157,15 +161,15 @@ namespace FPAuth_Client
                         //File.WriteAllText(Environment.GetEnvironmentVariable("public") + "\\fpauth.conf", Username);
                         try
                         {
-                            RegistryKey mkey = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Heine",true);
-                            Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Heine\FPLogin",true);
+                            RegistryKey mkey = Registry.CurrentUser.OpenSubKey("Software",true).CreateSubKey(@"Heine",true);
+                            mkey.CreateSubKey(@"FPLogin",true);
                         }
                         catch (Exception ex) { }
                         try
                         {
-                            
-                 ///           RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Heine\FPLogin", true);
-                      //      key.SetValue("Username", Username);
+
+                            RegistryKey mkey = Registry.CurrentUser.OpenSubKey("Software\\Heine\\FPLogin", true);
+                            mkey.SetValue("Username", Username);
                         }
                         catch (Exception ex) { }
         
@@ -228,7 +232,7 @@ namespace FPAuth_Client
         private void cbAutostart_CheckedChanged(object sender, EventArgs e)
         {
             if(cbAutostart.Checked)
-            {
+            {               
                 RunAsAdmin("/taskon");
             }
             else
@@ -251,18 +255,7 @@ namespace FPAuth_Client
 
         private void cbPressEnter_CheckedChanged(object sender, EventArgs e)
         {
-            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Heine\FPLogin", true);
-            if (key != null)
-            {
-                if (cbPressEnter.Checked)
-                {
-                    key.SetValue("PressEnter", "true");
-                }
-                else
-                {
-                    key.SetValue("PressEnter", "false");
-                }
-            }
+          
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -275,6 +268,22 @@ namespace FPAuth_Client
         {
             frmRegister f = new frmRegister();
             f.ShowDialog();
+        }
+
+        private void cbAutostart_Click(object sender, EventArgs e)
+        {
+            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Heine\FPLogin", true);
+            if (key != null)
+            {
+                if (cbPressEnter.Checked)
+                {
+                    key.SetValue("PressEnter", "true");
+                }
+                else
+                {
+                    key.SetValue("PressEnter", "false");
+                }
+            }
         }
     }
 }
