@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XML_DIZ_INFO>
+	<MASTER_PAD_VERSION_INFO>
+		<MASTER_PAD_VERSION>3.11</MASTER_PAD_VERSION>
+		<MASTER_PAD_EDITOR>PADGen 3.1.1.51 http://www.padgen.org</MASTER_PAD_EDITOR>
+		<MASTER_PAD_INFO>Portable Application Description, or PAD for short, is a data set that is used by shareware authors to disseminate information to anyone interested in their software products. To find out more go to http://pad.asp-software.org</MASTER_PAD_INFO>
+	</MASTER_PAD_VERSION_INFO>
+	<Company_Info>
+		<Company_Name>Dennis M. Heine</Company_Name>
+		<Address_1>Steinbruchstr. 42</Address_1>
+		<Address_2 />
+		<City_Town>Köngen</City_Town>
+		<State_Province>BW</State_Province>
+		<Zip_Postal_Code>73257</Zip_Postal_Code>
+		<Country>Germany</Country>
+		<Company_WebSite_URL>https://h2x.us</Company_WebSite_URL>
+		<Contact_Info>
+			<Author_First_Name>Dennis</Author_First_Name>
+			<Author_Last_Name>Heine</Author_Last_Name>
+			<Author_Email>dennis.heine@gmx.de</Author_Email>
+			<Contact_First_Name>Dennis</Contact_First_Name>
+			<Contact_Last_Name>Heine</Contact_Last_Name>
+			<Contact_Email>dennis.heine@gmx.de</Contact_Email>
+		</Contact_Info>
+		<Support_Info>
+			<Sales_Email>dennis.heine@gmx.de</Sales_Email>
+			<Support_Email>dennis.heine@gmx.de</Support_Email>
+			<General_Email>dennis.heine@gmx.de</General_Email>
+			<Sales_Phone />
+			<Support_Phone />
+			<General_Phone />
+			<Fax_Phone />
+		</Support_Info>
+	</Company_Info>
+	<Program_Info>
+		<Program_Name>Fingerprint Login</Program_Name>
+		<Program_Version>1.2</Program_Version>
+		<Program_Release_Month>12</Program_Release_Month>
+		<Program_Release_Day>19</Program_Release_Day>
+		<Program_Release_Year>2020</Program_Release_Year>
+		<Program_Cost_Dollars>4.99</Program_Cost_Dollars>
+		<Program_Cost_Other_Code />
+		<Program_Cost_Other />
+		<Program_Type>Shareware</Program_Type>
+		<Program_Release_Status>New Release</Program_Release_Status>
+		<Program_Install_Support>Install Only</Program_Install_Support>
+		<Program_OS_Support>Android,Win7 x64</Program_OS_Support>
+		<Program_Language>English</Program_Language>
+		<Program_Change_Info />
+		<Program_Specific_Category>Utilities</Program_Specific_Category>
+		<Program_Category_Class>Security &amp; Privacy::Password Managers</Program_Category_Class>
+		<Program_System_Requirements>Windows PC + Android Phone</Program_System_Requirements>
+		<File_Info>
+			<File_Size_Bytes>565011</File_Size_Bytes>
+			<File_Size_K>551</File_Size_K>
+			<File_Size_MB>0.54</File_Size_MB>
+		</File_Info>
+		<Expire_Info>
+			<Has_Expire_Info>N</Has_Expire_Info>
+			<Expire_Count />
+			<Expire_Based_On>Days</Expire_Based_On>
+			<Expire_Other_Info />
+			<Expire_Month />
+			<Expire_Day />
+			<Expire_Year />
+		</Expire_Info>
+	</Program_Info>
+	<Program_Descriptions>
+		<English>
+			<Keywords>OTP, 2FA, Login, Fingerprint, Android, Windows</Keywords>
+			<Char_Desc_45>Login to Windows or type in 2FA PWs</Char_Desc_45>
+			<Char_Desc_80>Login to Windows or automatically type in 2FA One Time Passes or Static PW</Char_Desc_80>
+			<Char_Desc_250>Login to Windows or automatically type in 2FA One Time Passes or Static Passwords through your Android Mobile fingerpint sensor. Seeds are being saved in the cloud an protected by a masterpassword.</Char_Desc_250>
+			<Char_Desc_450>Login to Windows or automatically type in 2FA One Time Passes or Static Passwords through your Android Mobile fingerpint sensor. Seeds are being saved in the cloud an protected by a masterpassword. If you format your mobile, seeds are still kept safe.</Char_Desc_450>
+			<Char_Desc_2000>Login to Windows or automatically type in 2FA One Time Passes or Static Passwords through your Android Mobile fingerpint sensor. Seeds are being saved in the cloud an protected by a masterpassword. If you format your mobile, seeds are still kept safe.
+The seeds and passwords are kept even if you format your mobile or Windows, so you won't have any problems loosing them. 
+The Passwords are being entered in the Windows app and can then be entered with an Android fingerprint in Windows.</Char_Desc_2000>
+		</English>
+	</Program_Descriptions>
+	<Web_Info>
+		<Application_URLs>
+			<Application_Info_URL>https://h2x.us/fingerprint-login/</Application_Info_URL>
+			<Application_Order_URL>https://h2x.us/purchase_fpa.html</Application_Order_URL>
+			<Application_Screenshot_URL>https://h2x.us/wp-content/uploads/2020/12/grafik.png</Application_Screenshot_URL>
+			<Application_Icon_URL />
+			<Application_XML_File_URL />
+		</Application_URLs>
+		<Download_URLs>
+			<Primary_Download_URL>https://h2x.us/setup.exe</Primary_Download_URL>
+			<Secondary_Download_URL />
+			<Additional_Download_URL_1 />
+			<Additional_Download_URL_2 />
+		</Download_URLs>
+	</Web_Info>
+	<Permissions>
+		<Distribution_Permissions>The trial version of Fingerprint Login can be freely distributed over the internet in an unchanged form</Distribution_Permissions>
+		<EULA>Freeware Licence Agreement
+
+This licence agreement only applies to the free version of this software.
+Terms and Conditions
+
+BY DOWNLOADING, INSTALLING, USING, TRANSMITTING, DISTRIBUTING OR COPYING THIS SOFTWARE ("THE SOFTWARE"), YOU AGREE TO THE TERMS OF THIS AGREEMENT (INCLUDING THE SOFTWARE LICENCE AND DISCLAIMER OF WARRANTY) WITH DENNIS HEINE THE OWNER OF ALL RIGHTS IN RESPECT OF THE SOFTWARE.
+
+PLEASE READ THIS DOCUMENT CAREFULLY BEFORE USING THE SOFTWARE.
+
+IF YOU DO NOT AGREE TO ANY OF THE TERMS OF THIS LICENCE THEN DO NOT DOWNLOAD, INSTALL, USE, TRANSMIT, DISTRIBUTE OR COPY THE SOFTWARE.
+
+THIS DOCUMENT CONSTITUTES A LICENCE TO USE THE SOFTWARE ON THE TERMS AND CONDITIONS APPEARING BELOW.
+
+The Software is licensed to you without charge for use only upon the terms of this licence, and Dennis Heine reserves all rights not expressly granted to you. Dennis Heine
+ retains ownership of all copies of the Software.
+1. Licence
+
+You may use the Software without charge.
+
+You may freely distribute exact copies of the Software to anyone.
+
+The inclusion of the Software in any shareware, freeware or similar media compilation or distribution method whereby it is made available at cost (ie. sold) is strictly prohibited.
+
+The selling of the Software is strictly prohibited.
+2. Restrictions
+
+Dennis Heine reserves the right to revoke the above distribution right at any time, for any or no reason.
+
+YOU MAY NOT MODIFY, ADAPT, TRANSLATE, RENT, LEASE, LOAN, SELL, ON-SELL, REQUEST DONATIONS OR CREATE DERIVATIVE WORKS BASED UPON THE SOFTWARE OR ANY PART THEREOF.
+
+The Software contains trade secrets and to protect them you may not decompile, reverse engineer, disassemble or otherwise reduce the Software to a humanly perceivable form. You agree not to divulge, directly or indirectly, until such trade secrets cease to be confidential, for any reason not your own fault.
+3. Termination
+
+This licence is effective until terminated. The Licence will terminate automatically without notice from Dennis Heine if you fail to comply with any provision of this Licence. Upon termination you must destroy the Software and all copies thereof. You may terminate this Licence at any time by destroying the Software and all copies thereof. Upon termination of this licence for any reason you shall continue to be bound by the provisions of Section 2 above. Termination will be without prejudice to any rights Dennis Heine may have as a result of this agreement.
+4. Disclaimer of Warranty, Limitation of Remedies
+
+TO THE FULL EXTENT PERMITTED BY LAW, DENNIS HEINE HEREBY EXCLUDES ALL CONDITIONS AND WARRANTIES, WHETHER IMPOSED BY STATUTE OR BY OPERATION OF LAW OR OTHERWISE, NOT EXPRESSLY SET OUT HEREIN. THE SOFTWARE, AND ALL ACCOMPANYING FILES, DATA AND MATERIALS ARE DISTRIBUTED "AS IS" AND WITH NO WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED. DENNIS HEINE DOES NOT WARRANT, GUARANTEE OR MAKE ANY REPRESENTATIONS REGARDING THE USE, OR THE RESULTS OF THE USE, OF THE SOFTWARE WITH RESPECT TO ITS CORRECTNESS, ACCURACY, RELIABILITY, CURRENTNESS OR OTHERWISE. THE ENTIRE RISK OF USING THE SOFTWARE IS ASSUMED BY YOU. DENNIS HINE MAKES NO EXPRESS OR IMPLIED WARRANTIES OR CONDITIONS INCLUDING, WITHOUT LIMITATION, THE WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE WITH RESPECT TO THE SOFTWARE. NO ORAL OR WRITTEN INFORMATION OR ADVICE GIVEN BY DENNIS HEINE, IT'S DISTRIBUTORS, AGENTS OR EMPLOYEES SHALL CREATE A WARRANTY, AND YOU MAY NOT RELY ON ANY SUCH INFORMATION OR ADVICE.
+
+IMPORTANT NOTE: Nothing in this Agreement is intended or shall be construed as excluding or modifying any statutory rights, warranties or conditions which by virtue of any national or state Fair Trading, Trade Practices or other such consumer legislation may not be modified or excluded. If permitted by such legislation, however, DENNIS HEINE' liability for any breach of any such warranty or condition shall be and is hereby limited to the supply of the Software licensed hereunder again as Dennis Heine at its sole discretion may determine to be necessary to correct the said breach.
+
+IN NO EVENT SHALL DENNIS HEINE BE LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT OR CONSEQUENTIAL DAMAGES (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF BUSINESS PROFITS, BUSINESS INTERRUPTION, AND THE LOSS OF BUSINESS INFORMATION OR COMPUTER PROGRAMS), EVEN IF DENNIS HEINE OR ANY OF HIS REPRESENTATIVE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. IN ADDITION, IN NO EVENT DOES DENNIS HEINE AUTHORISE YOU TO USE THE SOFTWARE IN SITUATIONS WHERE FAILURE OF THE SOFTWARE TO PERFORM CAN REASONABLY BE EXPECTED TO RESULT IN A PHYSICAL INJURY, OR IN LOSS OF LIFE. ANY SUCH USE BY YOU IS ENTIRELY AT YOUR OWN RISK, AND YOU AGREE TO HOLD DENNIS HEINE HARMLESS FROM ANY CLAIMS OR LOSSES RELATING TO SUCH UNAUTHORISED USE.
+5. General
+
+All rights of any kind in the Software which are not expressly granted in this Agreement are entirely and exclusively reserved to and by Dennis Heine.
+
+This Agreement shall be governed by the laws of the State of New South Wales, Australia. Exclusive jurisdiction and venue for all matters relating to this Agreement shall be in courts and fora located in the State of New South Wales, Australia, and you consent to such jurisdiction and venue. This agreement contains the entire Agreement between the parties hereto with respect to the subject matter hereof, and supersedes all prior agreements and/or understandings (oral or written). Failure or delay by Dennis Heine in enforcing any right or provision hereof shall not be deemed a waiver of such provision or right with respect to the instant or any subsequent breach. If any provision of this Agreement shall be held by a court of competent jurisdiction to be contrary to law, that provision will be enforced to the maximum extent permissible, and the remaining provisions of this Agreement will remain in force and effect.</EULA>
+	</Permissions>
+	<ASP>
+		<ASP_FORM>Y</ASP_FORM>
+		<ASP_Member>N</ASP_Member>
+		<ASP_Member_Number />
+	</ASP>
+</XML_DIZ_INFO>
