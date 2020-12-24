@@ -36,6 +36,28 @@ namespace FPAuth_Client
             
             try
             {
+                if (!File.Exists("license.lic"))
+                {
+                    (new frmNag()).ShowDialog();
+                }
+                else
+                {
+                    String[] lic = File.ReadAllLines("license.lic");
+                    if (lic.Count() != 2)
+                    {
+                        (new frmNag()).ShowDialog();
+                    }
+                    else
+                    {
+                        String ret = (new WebClient()).DownloadString("https://licensing.h2x.us/api/Licenses/" + lic[0] + "/" + lic[1]);
+                        if (!ret.Contains("true"))
+                            (new frmNag()).ShowDialog();
+                    }
+                }
+
+
+
+
                 RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Heine\FPLogin");
                 if (key != null && key.GetValue("Username")!=null)
                 {
@@ -231,14 +253,7 @@ namespace FPAuth_Client
 
         private void cbAutostart_CheckedChanged(object sender, EventArgs e)
         {
-            if(cbAutostart.Checked)
-            {               
-                RunAsAdmin("/taskon");
-            }
-            else
-            {
-                RunAsAdmin("/taskoff");
-            }
+        
         }
 
         private static void RunAsAdmin(String parameter)
@@ -284,6 +299,11 @@ namespace FPAuth_Client
                     key.SetValue("PressEnter", "false");
                 }
             }
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://play.google.com/store/apps/details?id=com.heine.dennis.fingerprintauthentication");
         }
     }
 }

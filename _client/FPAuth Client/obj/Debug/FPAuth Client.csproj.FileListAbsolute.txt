@@ -209,3 +209,5 @@ C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\obj\D
 C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\obj\Debug\FPAuth Client.exe
 C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\obj\Debug\FPAuth Client.pdb
 C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\obj\Debug\FPAuth Client.csprojAssemblyReference.cache
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\obj\Debug\FPAuth_Client.frmLicense.resources
+C:\Users\Someone\Documents\GitHub\FingerprintAuthOTP\_client\FPAuth Client\obj\Debug\FPAuth_Client.frmNag.resources
