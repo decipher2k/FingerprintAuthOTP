@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dennis\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\AotaSrvNew.csproj": {}
+    "C:\\Users\\dennis\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\FPAuth.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dennis\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\AotaSrvNew.csproj": {
+    "C:\\Users\\dennis\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\FPAuth.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dennis\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\AotaSrvNew.csproj",
-        "projectName": "AotaSrvNew",
-        "projectPath": "C:\\Users\\dennis\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\AotaSrvNew.csproj",
+        "projectUniqueName": "C:\\Users\\dennis\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\FPAuth.csproj",
+        "projectName": "FPAuth",
+        "projectPath": "C:\\Users\\dennis\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\FPAuth.csproj",
         "packagesPath": "C:\\Users\\dennis\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\dennis\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\obj\\",
         "projectStyle": "PackageReference",

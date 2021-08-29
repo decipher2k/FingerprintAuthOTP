@@ -23,10 +23,6 @@ namespace CredNet.Sample
 
         public override void Initialize()
         {
-            // Non personalized credential sample
-           // Credentials.Add(new NonPersonalizedSampleCredential());
-
-            // Personalized credential sample
             foreach (var user in Users)
             {
                 Credentials.Add(new PersonalizedSampleCredential(user));

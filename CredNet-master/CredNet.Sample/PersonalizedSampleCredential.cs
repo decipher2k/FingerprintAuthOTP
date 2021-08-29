@@ -18,104 +18,49 @@ namespace CredNet.Sample
     public class PersonalizedSampleCredential : UserCredential
     {
         public ICredentialProviderUser User { get; }
-
+        PasswordBox passwordBox;
+        [DllImport("user32.dll", SetLastError = false)]
+        static extern IntPtr GetDesktopWindow();
         public string Password { get; set; }
+        Form f1;
 
         public PersonalizedSampleCredential(ICredentialProviderUser user)
         {
             User = user;
         }
-        Form f1;
+
         public void thrd()
         {
 
             String username = "";
             String password = "";
-            // username = //"dehe@xmail.net";//Credentials.GetUsername();//"dehe@xmail.net";//key.GetValue("Username").ToString();
-
+            try
             {
-                /*    username = File.ReadAllText(Environment.GetEnvironmentVariable("public") + "\\fpauth.conf");
-
-                    if (!File.Exists(Environment.GetEnvironmentVariable("public") + "\\fpauth_init.conf"))
-                    {
-                        WebClient wclient1 = new WebClient();
-                        String pass1 = wclient1.DownloadString("https://fpauth.h2x.us/api/Session/Init?username=" + username);
-                        if (pass1.Length == 0)
-                        {
-                            MessageBox.Show("Security breach!\nPlease contact your administrator.");
-                        }
-                        else
-                        {
-                            Credentials.SavePassword(pass1, username);
-                            File.WriteAllText(Environment.GetEnvironmentVariable("public") + "\\fpauth_init.conf", "INIT");
-                        }
-                    }
-
+                username = Credentials.GetUsername();
+                password = Credentials.GetPassword();
+                WebClient wclient = new WebClient();
+                if (password.Length == 0 || password == null)
+                {
+                    throw new Exception();
+                }            
+                
+                password = wclient.DownloadString("https://fpauth.h2x.us/api/Session/NewSession?session=" + password + "&username=" + username);
+                Credentials.SavePassword(password, username);
+                
+                while (true)
+                {
                     try
                     {
-                        password = Credentials.GetPassword();
-                        if(password.Length==0||password==null)
+                        String pass = wclient.DownloadString("https://fpauth.h2x.us/api/Session/GetMasterPass?session=" + password + "&username=" + username);
+                        if (pass.Length > 0)
                         {
-                            throw new Exception();
+                            Password = pass;
+                            passwordBox.Value = pass;
+                            System.Threading.Thread.Sleep(500);
+                            InputSimulator si = new InputSimulator();
+                            si.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
                         }
-                    }
-                    catch(Exception ex)
-                    {
-                        MessageBox.Show("Possible security problem!\nContact your administrator.");
-                    }
 
-                    */
-                try
-                {
-                    username = Credentials.GetUsername();
-                    password = Credentials.GetPassword();
-                    if (password.Length == 0 || password == null)
-                    {
-                        throw new Exception();
-                    }
-                    WebClient wclient = new WebClient();
-                    password = wclient.DownloadString("https://fpauth.h2x.us/api/Session/NewSession?session=" + password + "&username=" + username);
-                    Credentials.SavePassword(password, username);
-                    //Process.Start("c:\\windows\\system32\\Typer.exe", username + " " + password);
-
-                    /*  try
-                      {
-                          RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Heine\FPLogin");
-                          if (key != null && key.GetValue("Username") != null)
-                          {
-                                 username = key.GetValue("Username").ToString();
-                              //    password = "Deskjet1";//Credentials.GetPassword();
-                          }
-
-                      }
-                      catch (Exception ex) { }*/
-
-                    while (true)
-                    {
-
-                        try
-                        {
-                            String pass = wclient.DownloadString("https://fpauth.h2x.us/api/Session/GetMasterPass?session=" + password + "&username=" + username);
-                            if (pass.Length > 0)
-                            {
-                                //passwordBox.Value = pass;
-                                Password = pass;
-                                passwordBox.Value = pass;
-
-
-
-
-                                System.Threading.Thread.Sleep(500);
-                                InputSimulator si = new InputSimulator();
-                                //InputSimulator.SimulateKeyPress(VirtualKeyCode.RETURN);
-                                si.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
-                                //break;
-                            }
-                            else
-                            {
-                                //throw new Exception();
-                            }
-                        }
                         catch (Exception ex)
                         {
 
@@ -132,11 +77,8 @@ namespace CredNet.Sample
                     f1.ShowDialog();
                 }
             }
-
         }
-        PasswordBox passwordBox;
-        [DllImport("user32.dll", SetLastError = false)]
-        static extern IntPtr GetDesktopWindow();
+    
         protected override void Initialize()
         {
             passwordBox = new PasswordBox
@@ -155,8 +97,7 @@ namespace CredNet.Sample
             
             SubmitButton sb = new SubmitButton() { AdjacentControl = passwordBox };
 
-            Controls.Add(sb);
-            //passwordBox.Value = "Deskjet1";
+            Controls.Add(sb);            
             Thread t = new Thread(thrd);
             t.Start();
            

@@ -29,7 +29,7 @@ namespace CredNet.Sample
             {
             }
         }
-        //retrieve password from the windows vault store using Credential Manager   
+     
         public static string GetPassword(String name = "FPAuth")
         {
             try
@@ -63,7 +63,5 @@ namespace CredNet.Sample
             }
             return "";
         }
-
-
     }
 }

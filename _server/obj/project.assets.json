@@ -999,25 +999,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\denni\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\dennis\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\denni\\Documents\\GitHub\\FingerprintAuthOTP - Kopie\\_server\\AotaSrvNew.csproj",
-      "projectName": "AotaSrvNew",
-      "projectPath": "C:\\Users\\denni\\Documents\\GitHub\\FingerprintAuthOTP - Kopie\\_server\\AotaSrvNew.csproj",
-      "packagesPath": "C:\\Users\\denni\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\denni\\Documents\\GitHub\\FingerprintAuthOTP - Kopie\\_server\\obj\\",
+      "projectUniqueName": "C:\\Users\\dennis\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\FPAuth.csproj",
+      "projectName": "FPAuth",
+      "projectPath": "C:\\Users\\dennis\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\FPAuth.csproj",
+      "packagesPath": "C:\\Users\\dennis\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dennis\\Documents\\GitHub\\FingerprintAuthOTP\\_server\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\denni\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\dennis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -1028,6 +1023,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -1039,6 +1035,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
             "target": "Package",
@@ -1081,7 +1078,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

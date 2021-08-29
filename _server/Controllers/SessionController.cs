@@ -11,52 +11,27 @@ namespace AotaSrvNew.Controllers
     [ApiController]
     public class SessionController : ControllerBase
     {
+        private static Dictionary<String, String> masterpasses = new Dictionary<string, string>();
+        public static Dictionary<String, String> passes = new Dictionary<string, string>();
+        public static Dictionary<String, String> inits = new Dictionary<string, string>();
         private readonly Models.BuildingContext _buildingContext;
 
         public SessionController(Models.BuildingContext buildingContext)
         {
             _buildingContext = buildingContext;
         }
-        public static string GetMD5Hash(string TextToHash)
-        {
-            //Prüfen ob Daten übergeben wurden.
-            if ((TextToHash == null) || (TextToHash.Length == 0))
-            {
-                return string.Empty;
-            }
-
-            //MD5 Hash aus dem String berechnen. Dazu muss der string in ein Byte[]
-            //zerlegt werden. Danach muss das Resultat wieder zurück in ein string.
-            MD5 md5 = new MD5CryptoServiceProvider();
-            byte[] textToHash = System.Text.Encoding.Default.GetBytes(TextToHash);
-            byte[] result = md5.ComputeHash(textToHash);
-            String ret = System.BitConverter.ToString(result).ToLower().Replace("-", "");
-            return ret;
-        }
-
 
         [HttpGet("{session,username}")]
         [Route("GetMasterPass")]
         public String GetMasterPass([FromQuery(Name = "session")] String session, [FromQuery(Name = "username")] String username)
         {
 
-        //    PlayerData u = _buildingContext.PlayerData.Where<PlayerData>(a => a.Name == username).Single();
             Session s = _buildingContext.Session.Where(a => a.sessionKey== session).ToList()[0];
             s.lastUpdate = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-            //s.idUser = u.id;
-           // if (u.Password == GetMD5Hash(password))
-            //{
+           
                 if(passes.ContainsKey(username))
                 {
-                    // String seed = passes[s.sessionKey];
-
-                    // Seeds seeds = _buildingContext.Seeds.Where<Seeds>((a => a.idPlayer == u.id)).Where(a => a.seed == seed).Single();
-                    // if (seeds != null)
-                    // {
-                    //  if (passes.ContainsKey(u.Session))
-                    // {
-                    // String _session = passes[u.Session];
-                    //  passes.Remove(u.Session);
+                   
                     String seed = "";
                     passes.TryGetValue(username, out seed);
                     if (seed.Substring(0, 1).Equals("#"))
@@ -71,29 +46,20 @@ namespace AotaSrvNew.Controllers
 
                         
                         var base32Bytes = Base32Encoding.ToBytes(seed);
-                        //var arrayResult = sha1.ComputeHash(arrayData);
+                        
                         var totp = new Totp(base32Bytes);
                         var totpCode = totp.ComputeTotp();
                         passes.Remove(username);
-                        return totpCode;
-                        //}
-                   // }
-           //     }
+                        return totpCode;                        
            }
             return "";
         }
 
-        public static Dictionary<String, String> passes = new Dictionary<string, string>();
-        // GET: api/Building
         [HttpGet("{session,masterpass,username}")]
         [Route("Login")]
         public String Login([FromQuery(Name = "session")] String session, [FromQuery(Name = "masterpass")] string masterpass, [FromQuery(Name = "username")] string username)
         {
             Session s;
-            
-          //  PlayerData u = _buildingContext.PlayerData.Where<PlayerData>(a => a.Name == username).Single();
-            
-            
             List<Session> sessions = _buildingContext.Session.Where(a => a.sessionKey==session).ToList();
             s = sessions[0];            
             s.lastUpdate = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
@@ -102,10 +68,10 @@ namespace AotaSrvNew.Controllers
             {
                 passes.Remove(username);
             }
-            passes.Add(username, masterpass);
-                        
+            passes.Add(username, masterpass);                        
             return s.sessionKey;
         }
+
         [HttpGet("{username, password,type}")]
         [Route("DoLogin")]
         public String DoLogin([FromQuery(Name = "username")] String username, [FromQuery(Name = "password")] String password, [FromQuery(Name = "type")] String type)
@@ -140,9 +106,7 @@ namespace AotaSrvNew.Controllers
             if(passes.ContainsKey(s.sessionKey))
                 passes.Remove(s.sessionKey);
 
-            return s.sessionKey;
-
-            
+            return s.sessionKey;         
         }
 
         [HttpGet("{session,username}")]
@@ -154,7 +118,6 @@ namespace AotaSrvNew.Controllers
             List<Session> sessions = _buildingContext.Session.Where(a => a.sessionKey==session).ToList();
             if (sessions.Count == 0)
                 throw new Exception();
-
 
             if(username!="")
             {
@@ -191,13 +154,8 @@ namespace AotaSrvNew.Controllers
             _buildingContext.SaveChanges();
             _buildingContext.Session.Add(s);
             _buildingContext.SaveChanges();
-
           
-
-            return s.sessionKey;
-
-            
-            return session;
+            return s.sessionKey;           
         }
 
         [HttpGet("{session}")]
@@ -240,8 +198,6 @@ namespace AotaSrvNew.Controllers
             }
         }
 
-        private static Dictionary<String,String> masterpasses = new Dictionary<string, string>();
-
         [HttpGet("{session}")]
         [Route("GetSeeds")]
         public SeedsCapsule GetSeeds( [FromQuery(Name = "session")] String session)
@@ -255,8 +211,6 @@ namespace AotaSrvNew.Controllers
             }
             else
             {
-        //        if (p.Password == GetMD5Hash(password))
-          //      {
                     List<Seeds> s = _buildingContext.Seeds.Where(a => a.idPlayer == p.id).ToList();
                     SeedsCapsule sc = new SeedsCapsule();
 
@@ -266,13 +220,9 @@ namespace AotaSrvNew.Controllers
                     }
                     sc.seeds = s;
                     return sc;
-            //    }
             }
             return null;
         }
-
-
-
 
         [HttpGet("{username}")]
         [Route("Init")]
@@ -287,7 +237,7 @@ namespace AotaSrvNew.Controllers
         {
             return null;
         }
-        public static Dictionary<String, String> inits = new Dictionary<string, string>();
+
         [HttpGet("{session,seed,name,isstp}")]
         [Route("AddSeed")]
         public String AddSeed([FromQuery(Name = "session")] String session, [FromQuery(Name = "seed")] String seed, [FromQuery(Name = "name")] String name, [FromQuery(Name = "isstp")] String isstp)
@@ -299,8 +249,7 @@ namespace AotaSrvNew.Controllers
                 return "ERR";
             }
             else
-            {
-             //   if (p.Password == GetMD5Hash(password))
+            {             
                 {
                     if( _buildingContext.Seeds.Where<Seeds>((a => a.idPlayer == p.id)).Where(a => a.name == name).ToList().Count==0)
                     
@@ -332,5 +281,20 @@ namespace AotaSrvNew.Controllers
             return new string(Enumerable.Repeat(chars, 40)
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
+
+        public static string GetMD5Hash(string TextToHash)
+        {
+            if ((TextToHash == null) || (TextToHash.Length == 0))
+            {
+                return string.Empty;
+            }
+
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] textToHash = System.Text.Encoding.Default.GetBytes(TextToHash);
+            byte[] result = md5.ComputeHash(textToHash);
+            String ret = System.BitConverter.ToString(result).ToLower().Replace("-", "");
+            return ret;
+        }
+
     }
 }
