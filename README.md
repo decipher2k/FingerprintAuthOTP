@@ -11,7 +11,7 @@
  ToDo:<br>
 -fix mockups like "AUTH"<br>
 -split the servercode into classes<br>
-implement sha256 for password hashes<br>
+-implement sha256 for password hashes<br>
 <br>
 Error fixes:<br>
 -run the following command from an admin command prompt:<br> c:\windows\syswow64\regasmcpy.bat c:\windows\syswow64\CredNet.dll<br>
