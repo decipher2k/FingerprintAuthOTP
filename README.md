@@ -11,7 +11,7 @@
  ToDo:<br>
 -fix mockups like "AUTH"<br>
 -split the servercode into classes<br>
--change from md5 to sha256<br>
+-md5 -> sha256<br>
 <br>
 Error fixes:<br>
 -run the following command from an admin command prompt:<br> c:\windows\syswow64\regasmcpy.bat c:\windows\syswow64\CredNet.dll<br>
